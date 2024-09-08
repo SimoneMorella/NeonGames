@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'NeonNeon';
+    src: url('./assets/fonts/neonFont.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'cyberWay';
+    src: url('./assets/fonts/cyberWayFont.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
