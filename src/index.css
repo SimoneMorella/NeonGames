@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* * {
+    border: 1px solid red;
+} */
+
 @font-face {
     font-family: 'NeonNeon';
     src: url('./assets/fonts/neonFont.otf') format('opentype');
@@ -15,3 +19,26 @@
     font-weight: normal;
     font-style: normal;
 }
+
+.neonLogo {
+    color: #FA4B9C;
+    text-shadow: 
+        0 0 4px #ffffff4d,
+        0 0 6px #ffffff4d,
+        0 0 20px #FA4B9C,
+        0 0 30px #FA4B9C,
+        0 0 40px #FA4B9C
+}
+
+.neonBorder {
+    border-radius: 1rem;
+    box-shadow: 
+        0 0 4px #ffffff4d,
+        0 0 4px #ffffff4d,
+        0 0 14px #FA4B9C,
+        0 0 8px #FA4B9C,
+        inset 0 0 10px #FA4B9C
+
+        /* good for hover 0 0 6px #ffffff4d, 0 0 8px #ffffff4d, 0 0 19px #FA4B9C, 0 0 12px #FA4B9C, inset 0 0 23px #FA4B9C */
+}
+
