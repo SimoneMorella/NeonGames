@@ -9,6 +9,8 @@ export default {
       fontFamily: {
         neon: ['NeonNeon', 'sans-serif'],
         cyberWay: ['CyberWay', 'sans-serif'],
+        geist: ['Geist Variable', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif']
       },
       backgroundImage: {
         customBg: 'linear-gradient(165deg, rgba(0,0,0,1) 0%, rgba(27,11,28,1) 70%, rgba(52,22,46,1) 100%);'

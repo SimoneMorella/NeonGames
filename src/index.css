@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 /* * {
     border: 1px solid red;
 } */
@@ -16,6 +17,13 @@
 @font-face {
     font-family: 'cyberWay';
     src: url('./assets/fonts/cyberWayFont.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./assets/fonts/montserrat.ttf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
@@ -37,8 +45,18 @@
         0 0 4px #ffffff4d,
         0 0 14px #FA4B9C,
         0 0 8px #FA4B9C,
-        inset 0 0 10px #FA4B9C
-
+        inset 0 0 10px #FA4B9C;
+    transition: all 0.150s ease-in-out;
         /* good for hover 0 0 6px #ffffff4d, 0 0 8px #ffffff4d, 0 0 19px #FA4B9C, 0 0 12px #FA4B9C, inset 0 0 23px #FA4B9C */
+}
+
+.neonBorder:hover {
+    box-shadow: 
+        0 0 6px #ffffff4d, 
+        0 0 8px #ffffff4d, 
+        0 0 28px #FA4B9C, 
+        0 0 16px #FA4B9C, 
+        inset 0 0 25px #FA4B9C;
+
 }
 
