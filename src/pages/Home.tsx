@@ -1,7 +1,10 @@
 import { GitHubLogoIcon } from "@radix-ui/react-icons"
 import rawgImg from "../assets/images/RAWG.png";
+import { useNavigate } from "react-router-dom";
 
 export default function Home () {
+    const navigate = useNavigate();
+
     return (
         <div className="min-h-svh bg-customBg flex justify-center items-center">
             <div className="flex flex-col justify-center gap-14 p-8 -mt-40">
@@ -9,7 +12,9 @@ export default function Home () {
                     <span className="neonLogo inline-block -mb-2 h-16 animate-textPulsate">Ne<span className="animate-textFlick">o</span>n</span>
                     <span className="font-cyberWay text-white inline-block h-16">Games</span>
                 </h1>
-                <button className="font-neon text-white text-center text-2xl w-32 self-center py-2 px-6 pt-4 neonLogo neonBorder animate-borderPulse">
+                <button 
+                    className="font-neon text-white text-center text-2xl w-32 self-center py-2 px-6 pt-4 neonLogo neonBorder animate-borderPulse"
+                    onClick={() => navigate("/shop")}>
                     <div className="animate-textPulsate">
                         S<span className="animate-textFlick">H</span>OP
                     </div>

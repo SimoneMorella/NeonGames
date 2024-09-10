@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 
-/* * {
+* {
     border: 1px solid red;
-} */
+}
 
 @font-face {
     font-family: 'NeonNeon';
@@ -47,7 +47,6 @@
         0 0 8px #FA4B9C,
         inset 0 0 10px #FA4B9C;
     transition: all 0.150s ease-in-out;
-        /* good for hover 0 0 6px #ffffff4d, 0 0 8px #ffffff4d, 0 0 19px #FA4B9C, 0 0 12px #FA4B9C, inset 0 0 23px #FA4B9C */
 }
 
 .neonBorder:hover {
