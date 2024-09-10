@@ -4,7 +4,7 @@ import rawgImg from "../assets/images/RAWG.png";
 export default function Home () {
     return (
         <div className="min-h-svh bg-customBg flex justify-center items-center">
-            <div className="flex flex-col justify-center gap-14 p-8 -mt-32">
+            <div className="flex flex-col justify-center gap-14 p-8 -mt-40">
                 <h1 className="font-neon text-5xl p-4 flex items-center">
                     <span className="neonLogo inline-block -mb-2 h-16 animate-textPulsate">Ne<span className="animate-textFlick">o</span>n</span>
                     <span className="font-cyberWay text-white inline-block h-16">Games</span>
@@ -16,11 +16,11 @@ export default function Home () {
                 </button>
             </div>
             <div className="text-gray-900 font-montserrat absolute bottom-4 bg-white bg-opacity-10 py-2 px-4 rounded-xl flex gap-3">
-                <a href="https://github.com/SimoneMorella" className="flex w-[120px] items-center justify-center gap-1 py-1 px-2 bg-white bg-opacity-70 hover:bg-opacity-50 rounded-lg transition">
+                <a href="https://github.com/SimoneMorella" className="flex w-[120px] items-center justify-center gap-1 py-1 px-2 bg-white bg-opacity-90 hover:bg-opacity-70 rounded-lg transition">
                     <GitHubLogoIcon className="w-4 h-4 text-black"/>
                     <span className="text-[11px] font-normal -mb-[2px]">SimoneMorella</span> 
                 </a>
-                <a href="https://api.rawg.io/docs/" className="flex items-center justify-center gap-1 py-1 px-2 bg-white bg-opacity-70 hover:bg-opacity-50 w-[120px] rounded-lg transition">
+                <a href="https://api.rawg.io/docs/" className="flex items-center justify-center gap-1 py-1 px-2 bg-white bg-opacity-90 hover:bg-opacity-70 w-[120px] rounded-lg transition">
                     <img src={rawgImg} alt="RAWG logo" className="w-4 h-4"/>
                     <span className="text-xs -mb-[2px]">RAWG API</span>
                 </a>
