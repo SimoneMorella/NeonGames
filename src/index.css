@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
+/* 
 * {
     border: 1px solid red;
-}
+} */
 
 @font-face {
     font-family: 'NeonNeon';
@@ -56,6 +56,22 @@
         0 0 28px #FA4B9C, 
         0 0 16px #FA4B9C, 
         inset 0 0 25px #FA4B9C;
+}
+
+.container {
+    position: fixed;
+    bottom: 1.75rem;
+    right: 1.75rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background-image: linear-gradient(142deg, rgba(233,203,228,1) 0%, rgba(250,242,248,1) 35%, rgba(255,255,255,1) 100%);
+    transition: all 1.5s;
 
 }
+
+.container.expanded {
+    transform: scale(72);
+}
+
 

@@ -13,7 +13,8 @@ export default {
         montserrat: ['Montserrat', 'sans-serif']
       },
       backgroundImage: {
-        customBg: 'linear-gradient(165deg, rgba(0,0,0,1) 0%, rgba(27,11,28,1) 70%, rgba(52,22,46,1) 100%);'
+        customBg: 'linear-gradient(165deg, rgba(0,0,0,1) 0%, rgba(27,11,28,1) 70%, rgba(52,22,46,1) 100%);',
+        navShopBg: 'linear-gradient(165deg, rgba(52,22,46,1) 0%, rgba(137,120,134,1) 33%, rgba(255,255,255,1) 100%);'
       },
       keyframes: {
         textPulsate: {
