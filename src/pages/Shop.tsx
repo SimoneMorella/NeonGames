@@ -1,8 +1,9 @@
 import fetchAllGames from "../api/apiCall.ts"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useScreenSizeCheck from "../hooks/useScreenSizeCheck.ts";
 import ShopNavigation from "../components/ShopNav.tsx";
 import { HamburgerMenuIcon, Cross1Icon } from "@radix-ui/react-icons";
+import { Outlet, useLocation } from "react-router-dom";
 
 export async function loadAllGames() {
     const allGames = await fetchAllGames();
@@ -13,12 +14,14 @@ export async function loadAllGames() {
 export default function Shop() {
     const isMobile = useScreenSizeCheck(768);
     const [isMenuShown, setIsMenuShown] = useState(false)
+    const location = useLocation();
 
-
+    useEffect(() => {
+        setIsMenuShown(false);
+    }, [location])
 
     return (
         <div className="min-h-svh bg-customBg text-white flex justify-center items-center">
-            questo è lo shop
             <div className={`md:hidden z-10 container ${isMenuShown ? 'expanded': ''}`}></div>
             {
                 isMobile
@@ -40,6 +43,7 @@ export default function Shop() {
                     : (<HamburgerMenuIcon className="w-5 h-5"/>) 
                     }
                 </button>
+            <Outlet />
         </div>
     )
 }

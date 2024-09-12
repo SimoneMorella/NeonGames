@@ -1,86 +1,114 @@
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
+import navigationInfo from "../data/navigations";
+
 
 export default function ShopNavigation() {
 
     return (
-        <aside className="text-black z-10 md:text-white">
-            <div>
-                <h2>Discover</h2>
-                <ul>
-                    <li>
-                        <Link to={"/"}>Home</Link>
-                    </li>
-                    <li>
-                        <Link to={"/"}>Your Favorite</Link>
-                    </li>
+        <aside className="text-black z-10 md:text-white absolute top-0 left-0 grid grid-cols-1 w-full font-montserrat gap-y-10 py-8 px-6">
+            <div className="space-y-3">
+                <h2 className="font-bold text-xl">Discover</h2>
+                <ul className="space-y-2">
+                {navigationInfo.slice(0, 2).map(ele => {
+                        return (
+                            <li key={ele.name}>
+                                <NavLink to={ele.path} end>
+                                {({ isActive }) => (
+                                    <div className="flex items-center gap-2 text-sm">
+                                        <div className={`${isActive ? 'bg-[#FA4B9C]' : 'bg-black'} p-2 rounded-lg flex justify-center items-center`}>
+                                        {ele.icon}
+                                        </div>
+                                        {ele.name}
+                                    </div> 
+                                )}
+                                </NavLink>
+                            </li>
+                        )
+                    })}
                 </ul>
             </div>
-            <div>
-                <h2>New Release</h2>
-                <ul>
-                    <li>
-                        <Link to={"/"}>This Week</Link>
-                    </li>
-                    <li>
-                        <Link to={"/"}>Last 30 Days</Link>
-                    </li>
-                    <li>
-                        <Link to={"/"}>Next 30 Days</Link>
-                    </li>
+            <div className="space-y-3">
+                <h2 className="font-bold text-xl">New Release</h2>
+                <ul className="space-y-2">
+                {navigationInfo.slice(2, 5).map(ele => {
+                        return (
+                            <li key={ele.name}>
+                                <NavLink to={ele.path} end>
+                                {({ isActive }) => (
+                                    <div className="flex items-center gap-2 text-sm">
+                                        <div className={`${isActive ? 'bg-[#FA4B9C]' : 'bg-black'} p-2 rounded-lg flex justify-center items-center`}>
+                                        {ele.icon}
+                                        </div>
+                                        {ele.name}
+                                    </div> 
+                                )}
+                                </NavLink>
+                            </li>
+                        )
+                    })}
                 </ul>
             </div>
-            <div>
-                <h2>Top</h2>
-                <ul>
-                    <li>
-                        <Link to={"/"}>Top of All Time</Link>
-                    </li>
-                    <li>
-                        <Link to={"/"}>Best of the Year</Link>
-                    </li>
-                    <li>
-                        <Link to={"/"}>Top of Last Year</Link>
-                    </li>
+            <div className="space-y-3">
+                <h2 className="font-bold text-xl">Top</h2>
+                <ul className="space-y-2">
+                {navigationInfo.slice(5, 8).map(ele => {
+                        return (
+                            <li key={ele.name}>
+                                <NavLink to={ele.path} end>
+                                {({ isActive }) => (
+                                    <div className="flex items-center gap-2 text-sm">
+                                        <div className={`${isActive ? 'bg-[#FA4B9C]' : 'bg-black'} p-2 rounded-lg flex justify-center items-center`}>
+                                        {ele.icon}
+                                        </div>
+                                        {ele.name}
+                                    </div> 
+                                )}
+                                </NavLink>
+                            </li>
+                        )
+                    })}
                 </ul>
             </div>
-            <div>
-                <h2>Platforms</h2>
-                <ul>
-                    <li>
-                        <Link to={"/"}>PC</Link>
-                    </li>
-                    <li>
-                        <Link to={"/"}>Xbox</Link>
-                    </li>
-                    <li>
-                        <Link to={"/"}>PlayStation</Link>
-                    </li>
-                    <li>
-                        <Link to={"/"}>Nintendo Switch</Link>
-                    </li>
+            <div className="space-y-3">
+                <h2 className="font-bold text-xl">Platform</h2>
+                <ul className="space-y-2">
+                {navigationInfo.slice(8, 12).map(ele => {
+                        return (
+                            <li key={ele.name}>
+                                <NavLink to={ele.path} end>
+                                {({ isActive }) => (
+                                    <div className="flex items-center gap-2 text-sm">
+                                        <div className={`${isActive ? 'bg-[#FA4B9C]' : 'bg-black'} p-2 rounded-lg flex justify-center items-center`}>
+                                        {ele.icon}
+                                        </div>
+                                        {ele.name}
+                                    </div> 
+                                )}
+                                </NavLink>
+                            </li>
+                        )
+                    })}
                 </ul>
             </div>
-            <div>
-                <h2>Genres</h2>
-                <ul>
-                    <li>
-                        <Link to={"/"}>Action</Link>
-                    </li>
-                    <li>
-                        <Link to={"/"}>Adventure</Link>
-                    </li>
-                    <li>
-                        <Link to={"/"}>RPG</Link>
-                    </li>
-                    <li>
-                        <Link to={"/"}>Strategy</Link>
-                    </li>
-                    <li>
-                        <Link to={"/"}>Sports</Link>
-                    </li>
-                    <li>
-                        <Link to={"/"}>Puzzle</Link>
-                    </li>
+            <div className="space-y-3">
+                <h2 className="font-bold text-xl">Genre</h2>
+                <ul className="space-y-2">
+                {navigationInfo.slice(12).map(ele => {
+                        return (
+                            <li key={ele.name}>
+                                <NavLink to={ele.path} end>
+                                {({ isActive }) => (
+                                    <div className="flex items-center gap-2 text-sm">
+                                        <div className={`${isActive ? 'bg-[#FA4B9C]' : 'bg-black'} p-2 rounded-lg flex justify-center items-center`}>
+                                        {ele.icon}
+                                        </div>
+                                        {ele.name}
+                                    </div> 
+                                )}
+                                </NavLink>
+                            </li>
+                        )
+                    })}
                 </ul>
             </div>
         </aside>
