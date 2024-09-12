@@ -4,6 +4,7 @@ import useScreenSizeCheck from "../hooks/useScreenSizeCheck.ts";
 import ShopNavigation from "../components/ShopNav.tsx";
 import { HamburgerMenuIcon, Cross1Icon } from "@radix-ui/react-icons";
 import { Outlet, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 
 export async function loadAllGames() {
     const allGames = await fetchAllGames();
@@ -25,10 +26,23 @@ export default function Shop() {
             <div className={`md:hidden z-10 container ${isMenuShown ? 'expanded': ''}`}></div>
             {
                 isMobile
-                ? (
-                    isMenuShown && (
-                        <ShopNavigation />
-                    )
+                ? ( <AnimatePresence>
+                    {isMenuShown && (
+                        <motion.div 
+                            className="z-[10]"
+                            initial={{opacity: 0}}
+                            animate={{opacity: 1}}
+                            exit={{opacity: 0, transition: {duration: 0.3, delay: 0}}}
+                            transition={{
+                                duration: 0.5,
+                                delay: 1
+                            }}>
+                            <ShopNavigation />
+                        </motion.div>
+                        
+                    )}
+                </AnimatePresence>
+                    
                 )
                 : (
                     <ShopNavigation />
