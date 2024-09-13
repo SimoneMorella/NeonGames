@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 
+
 * {
     border: 1px solid red;
-} */
+}
 
 @font-face {
     font-family: 'NeonNeon';
@@ -58,6 +58,15 @@
         inset 0 0 25px #FA4B9C;
 }
 
+.neonIcon {
+    box-shadow: 
+    0 0 4px #ffffff4d,
+    0 0 4px #ffffff4d,
+    0 0 14px #FA4B9C,
+    0 0 8px #FA4B9C,
+    inset 0 0 10px #FA4B9C;
+}
+
 .container {
     position: fixed;
     bottom: 1.75rem;
@@ -66,12 +75,17 @@
     height: 2.25rem;
     border-radius: 50%;
     background-image: linear-gradient(142deg, rgba(233,203,228,1) 0%, rgba(250,242,248,1) 35%, rgba(255,255,255,1) 100%);
-    transition: all 1s;
+    transition: all 1s ;
 
 }
 
 .container.expanded {
     transform: scale(72);
+}
+
+.shadowIco {
+    color: #FA4B9C;
+    filter: drop-shadow(3px 3px 4px #FA4B9C);
 }
 
 

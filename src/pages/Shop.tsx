@@ -2,6 +2,7 @@ import fetchAllGames from "../api/apiCall.ts"
 import { useState, useEffect } from "react";
 import useScreenSizeCheck from "../hooks/useScreenSizeCheck.ts";
 import ShopNavigation from "../components/ShopNav.tsx";
+import ShopMain from "./ShopMain.tsx";
 import { HamburgerMenuIcon, Cross1Icon } from "@radix-ui/react-icons";
 import { Outlet, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
@@ -20,9 +21,9 @@ export default function Shop() {
     useEffect(() => {
         setIsMenuShown(false);
     }, [location])
-
+// if i want the full screen rest for this component child (main) just add flex here
     return (
-        <div className="min-h-svh bg-customBg text-white flex justify-center items-center">
+        <div className="flex-1 bg-customBg text-white md:grid grid-cols-5 md:pt-[90px]">
             <div className={`md:hidden z-10 container ${isMenuShown ? 'expanded': ''}`}></div>
             {
                 isMobile
@@ -42,10 +43,12 @@ export default function Shop() {
                         
                     )}
                 </AnimatePresence>
-                    
                 )
                 : (
-                    <ShopNavigation />
+                    <div className="md:col-span-2 ">
+                        <ShopNavigation />
+                    </div>
+
                 )
             }
                 <button 
@@ -57,7 +60,13 @@ export default function Shop() {
                     : (<HamburgerMenuIcon className="w-5 h-5"/>) 
                     }
                 </button>
-            <Outlet />
+
+                {location.pathname === "/shop" 
+                    ? (<ShopMain />)
+                    : (<Outlet />)}
+
+
+           
         </div>
     )
 }

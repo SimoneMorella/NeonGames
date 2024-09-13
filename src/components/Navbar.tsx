@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function Navbar() {
     return (
-        <nav className="absolute w-full flex items-center py-6 px-8 justify-between">
+        <nav className=" w-full flex items-center py-6 px-8 justify-between">
             <Link to="/" className="font-neon text-3xl">
                 <span className="neonLogo animate-textPulsate">N<span className="hidden lg:inline">eon</span></span>
                 <span className="font-cyberWay text-white -ml-2 lg:ml-0">G<span className="hidden lg:inline">ames</span></span>

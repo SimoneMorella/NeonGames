@@ -6,7 +6,7 @@ export default function Home () {
     const navigate = useNavigate();
 
     return (
-        <div className="min-h-svh bg-customBg flex justify-center items-center">
+        <div className=" flex-1 bg-customBg flex justify-center items-center">
             <div className="flex flex-col justify-center gap-14 p-8 -mt-40">
                 <h1 className="font-neon text-5xl p-4 flex items-center">
                     <span className="neonLogo inline-block -mb-2 h-16 animate-textPulsate">Ne<span className="animate-textFlick">o</span>n</span>
