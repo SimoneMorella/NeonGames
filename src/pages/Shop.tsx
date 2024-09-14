@@ -1,24 +1,19 @@
-import fetchAllGames from "../api/apiCall.ts"
 import { useState, useEffect } from "react";
 import useScreenSizeCheck from "../hooks/useScreenSizeCheck.ts";
 import ShopNavigation from "../components/ShopNav.tsx";
 import ShopMain from "./ShopMain.tsx";
+import { SliderGame } from "../types/gameTypes.ts";
 import { HamburgerMenuIcon, Cross1Icon } from "@radix-ui/react-icons";
 import { Outlet, useLocation, useLoaderData } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 
-export async function loadAllGames() {
-    const allGames = await fetchAllGames();
-    const gamesForSlider = allGames.slice(0, 5);
-    console.log(gamesForSlider);
-    return gamesForSlider;
-}
+
 
 export default function Shop() {
     const isMobile = useScreenSizeCheck(768);
     const [isMenuShown, setIsMenuShown] = useState(false)
     const location = useLocation();
-    const results  = useLoaderData();
+    const results = useLoaderData() as SliderGame[];
 
     useEffect(() => {
         setIsMenuShown(false);

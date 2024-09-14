@@ -3,10 +3,10 @@ import { Pagination, Autoplay } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { SiFireship } from "react-icons/si";
+import { SliderGameProps } from "../types/gameTypes";
 
 
-export default function ShopMain ({ sliderGames }) {
-    console.log(sliderGames);
+export default function ShopMain ({ sliderGames }: SliderGameProps) {
     return (
         <div className="flex flex-col py-8 px-8">
             <div className="space-y-4">
@@ -23,7 +23,7 @@ export default function ShopMain ({ sliderGames }) {
                         delay: 2500,
                         disableOnInteraction: false,
                     }}
-                    className="bg-black text-black w-full h-48 rounded-lg"
+                    className="bg-transparent text-black w-full h-48 rounded-lg"
                     >
                     { sliderGames.map((game) => {
                         return (
