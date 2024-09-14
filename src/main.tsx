@@ -5,6 +5,7 @@ import Shop, {loadAllGames} from './pages/Shop.tsx'
 import GameList from './pages/GameList.tsx'
 import Layout from './pages/Layout.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import loadSliderGames from './api/loaders.ts'
 import './index.css'
 
 
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
         <Shop />
       </Layout>
     ),
-    loader: loadAllGames,
+    loader: loadSliderGames,
     children: [
       {
         path: "/shop/gamelist/:filter",

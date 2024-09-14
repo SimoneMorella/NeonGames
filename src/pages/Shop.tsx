@@ -4,19 +4,21 @@ import useScreenSizeCheck from "../hooks/useScreenSizeCheck.ts";
 import ShopNavigation from "../components/ShopNav.tsx";
 import ShopMain from "./ShopMain.tsx";
 import { HamburgerMenuIcon, Cross1Icon } from "@radix-ui/react-icons";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation, useLoaderData } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 
 export async function loadAllGames() {
     const allGames = await fetchAllGames();
-    console.log(allGames[0]);
-    return allGames[0];
+    const gamesForSlider = allGames.slice(0, 5);
+    console.log(gamesForSlider);
+    return gamesForSlider;
 }
 
 export default function Shop() {
     const isMobile = useScreenSizeCheck(768);
     const [isMenuShown, setIsMenuShown] = useState(false)
     const location = useLocation();
+    const results  = useLoaderData();
 
     useEffect(() => {
         setIsMenuShown(false);
@@ -29,8 +31,8 @@ export default function Shop() {
                 isMobile
                 ? ( <AnimatePresence>
                     {isMenuShown && (
-                        <motion.div 
-                            className="z-[10]"
+                        <motion.div
+                            className="z-[11]"
                             initial={{opacity: 0}}
                             animate={{opacity: 1}}
                             exit={{opacity: 0, transition: {duration: 0.3, delay: 0}}}
@@ -38,7 +40,7 @@ export default function Shop() {
                                 duration: 0.5,
                                 delay: 1
                             }}>
-                            <ShopNavigation />
+                            <ShopNavigation/>
                         </motion.div>
                         
                     )}
@@ -62,7 +64,7 @@ export default function Shop() {
                 </button>
 
                 {location.pathname === "/shop" 
-                    ? (<ShopMain />)
+                    ? (<ShopMain sliderGames={results}/>)
                     : (<Outlet />)}
 
 

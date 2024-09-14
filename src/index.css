@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 
-* {
+/* * {
     border: 1px solid red;
-}
+} */
 
 @font-face {
     font-family: 'NeonNeon';
@@ -86,6 +86,25 @@
 .shadowIco {
     color: #FA4B9C;
     filter: drop-shadow(3px 3px 4px #FA4B9C);
+}
+
+
+
+.swiper-pagination-bullet {
+    background-color: rgb(153, 150, 150);
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #FA4B9C;
+}
+
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+    width: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0,0,0, 0.8);
+    border-radius: 8px;
+
 }
 
 

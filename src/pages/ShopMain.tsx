@@ -5,14 +5,14 @@ import 'swiper/css/pagination';
 import { SiFireship } from "react-icons/si";
 
 
-export default function ShopMain () {
-
+export default function ShopMain ({ sliderGames }) {
+    console.log(sliderGames);
     return (
         <div className="flex flex-col py-8 px-8">
             <div className="space-y-4">
-                <div className="flex items-center gap-4 font-cyberWay tracking-wider">
+                <div className="flex items-center gap-3 font-cyberWay tracking-wider">
                     <SiFireship className="w-6 h-6 shadowIco"/>
-                    <h1 className="text-2xl">Hottest releases</h1>
+                    <h1 className="text-2xl -mb-1">Hottest releases</h1>
                 </div>
                 <Swiper
                     spaceBetween={30}
@@ -23,13 +23,26 @@ export default function ShopMain () {
                         delay: 2500,
                         disableOnInteraction: false,
                     }}
-                    className="w-40 h-20"
+                    className="bg-black text-black w-full h-48 rounded-lg"
                     >
-                    <SwiperSlide>Slide 1</SwiperSlide>
-                    <SwiperSlide>Slide 2</SwiperSlide>
-                    <SwiperSlide>Slide 3</SwiperSlide>
-                    <SwiperSlide>Slide 4</SwiperSlide>
-                    <SwiperSlide>Slide 5</SwiperSlide>
+                    { sliderGames.map((game) => {
+                        return (
+                            <SwiperSlide
+                                key={game.id}
+                                style={{
+                                    backgroundImage: `url(${game.background_image})`,
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
+                                    height: '100%',
+                                    borderRadius: '8px',
+                                }}>
+                                <h4 className="text-white font-montserrat w-fit mt-2 ml-2 px-2 rounded-lg bg-black bg-opacity-60">
+                                    {game.name}
+                                </h4>
+                                
+                            </SwiperSlide>
+                        )
+                    })}
                 </Swiper>
             </div>
 
