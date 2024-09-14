@@ -75,13 +75,13 @@
     height: 2.25rem;
     border-radius: 50%;
     background-image: linear-gradient(142deg, rgba(233,203,228,1) 0%, rgba(250,242,248,1) 35%, rgba(255,255,255,1) 100%);
-    transition: all 1s ;
+    /* transition: transform 0.6s ; */
 
 }
 
-.container.expanded {
+/* .container.expanded {
     transform: scale(72);
-}
+} */
 
 .shadowIco {
     color: #FA4B9C;

@@ -5,7 +5,7 @@ import navigationInfo from "../data/navigations";
 export default function ShopNavigation() {
 
     return (
-        <aside className="text-black z-[11] md:text-white absolute md:static top-0 left-0 grid grid-cols-1 w-full font-montserrat gap-y-10 py-8 px-6">
+        <aside className="text-black md:text-white absolute z-[11] md:static top-0 left-0 grid grid-cols-1 w-full font-montserrat gap-y-10 py-8 px-6">
             <div className="space-y-3">
                 <h2 className="font-bold text-xl">Discover</h2>
                 <ul className="space-y-2">

@@ -23,7 +23,7 @@ export default function ShopMain ({ sliderGames }: SliderGameProps) {
                         delay: 2500,
                         disableOnInteraction: false,
                     }}
-                    className="bg-transparent text-black w-full h-48 rounded-lg"
+                    className=" bg-transparent text-black w-full h-48 rounded-lg"
                     >
                     { sliderGames.map((game) => {
                         return (
