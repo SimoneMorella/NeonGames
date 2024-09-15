@@ -41,7 +41,7 @@ export default function Shop() {
                 ? ( <AnimatePresence>
                     {isMenuShown && isBgBig && (
                         <motion.div
-                            className="absolute top-0 z-[11] w-full"
+                            className="sticky top-0 -mt-24 z-[11] w-full "
                             initial={{opacity: 0}}
                             animate={{opacity: 1}}
                             exit={{opacity: 0, transition: {duration: 0.3, delay: 0}}}
