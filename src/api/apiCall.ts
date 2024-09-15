@@ -5,9 +5,18 @@ import { SliderApiResponse, SliderGame } from '../types/gameTypes';
 
 const URL = 'https://api.rawg.io/api/games?key=174131b6a816487ebd53103081309606';
 
-export async function fetchSliderGames(): Promise<SliderGame[]> {
+export async function fetchSliderGames(filter: string): Promise<SliderGame[]> {
+    let url_slider = URL;
+    switch (filter) {
+        case 'hottest':
+            url_slider = `${URL}&dates=${get30DaysGap()}&ordering=-rating&page_size=5`;
+            break;
+        case "goat":
+            url_slider = `${URL}&ordering=-added&page_size=5&exclude_additions&parent_platforms=1,2,3`;
+            break;
+    }
     try {
-        const response = await axios.get(`${URL}&dates=${get30DaysGap()}&ordering=-rating&page_size=5`);
+        const response = await axios.get(url_slider);
         const data: SliderApiResponse = response.data;
         return data.results;
     } catch (err) {

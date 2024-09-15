@@ -13,5 +13,9 @@ export default function get30DaysGap() :string {
     }
 
     return formatDate(pastDate) + ',' + formatDate(currentDate);
+}
 
+export function generatePrice() {
+    const price = Math.floor(Math.random() * (69 - 15 + 1)) + 15;
+    return `${price},99€`;
 }
