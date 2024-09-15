@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 
-* {
+/* * {
     border: 1px solid red;
-}
+} */
 
 @font-face {
     font-family: 'NeonNeon';

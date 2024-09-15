@@ -2,6 +2,7 @@ import {Swiper, SwiperSlide } from "swiper/react"
 import { Pagination, Autoplay } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { Link } from "react-router-dom";
 import { SiFireship } from "react-icons/si";
 import { GiLaurelCrown } from "react-icons/gi";
 import { SliderGameProps } from "../types/gameTypes";
@@ -9,6 +10,7 @@ import CardBase from "../components/CardBase";
 
 
 export default function ShopMain ({ sliderGames }: SliderGameProps) {
+    console.log(sliderGames)
     return (
         <div className="flex flex-col gap-10 py-8 px-8">
             <div className="space-y-4">
@@ -22,7 +24,7 @@ export default function ShopMain ({ sliderGames }: SliderGameProps) {
                     pagination= {{clickable: true}}
                     modules={[Pagination, Autoplay]}
                     autoplay={{
-                        delay: 2500,
+                        delay: 3500,
                         disableOnInteraction: false,
                     }}
                     className=" bg-transparent text-black w-full h-48 rounded-lg"
@@ -53,15 +55,27 @@ export default function ShopMain ({ sliderGames }: SliderGameProps) {
                     <h1 className="text-2xl -mb-1">All Time Top</h1>
                 </div>
                 <Swiper
-                    slidesPerView={3}
-                    spaceBetween={0}
+                    slidesPerView={2.1}
+                    spaceBetween={12}
                     centeredSlides={false}
+                    className="font-montserrat"
                 >
-                    <SwiperSlide><CardBase /></SwiperSlide>
-                    <SwiperSlide><CardBase /></SwiperSlide>
-                    <SwiperSlide><CardBase /></SwiperSlide>
-                    <SwiperSlide><CardBase /></SwiperSlide>
-                    <SwiperSlide><CardBase /></SwiperSlide>
+                    {sliderGames.goat.map(game => {
+                        return (
+                            <SwiperSlide key={game.id} className="">
+                                <CardBase game={game}/>
+                            </SwiperSlide>
+                        )
+                    })}
+                    <SwiperSlide>
+                        <div className="h-[220px] flex justify-center items-center">
+                            <Link 
+                                to='/shop/gamelist/top-of-all-time'
+                                className="neonLogo font-neon animate-textPulsate">
+                                    See More...
+                            </Link>
+                        </div>
+                    </SwiperSlide>
                 </Swiper>
             </div>
         </div>
