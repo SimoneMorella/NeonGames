@@ -8,7 +8,7 @@ export default function CardBase({ game }: GameProp) {
                 backgroundImage: `url(${game.background_image})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                height: '220px',
+                height: '210px',
                 borderRadius: '4px',
                 overflow: 'hidden',
                 boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',

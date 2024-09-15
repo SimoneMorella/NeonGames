@@ -14,6 +14,8 @@ export type GameProp = {
 export type SliderPageGames = {
     "hottest": SliderGame[];
     "goat": SliderGame[];
+    "preorder": SliderGame[];
+    "bestLastYear": SliderGame[];
 }
 
 export type SliderGameProps = {

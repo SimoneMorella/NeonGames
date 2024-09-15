@@ -7,18 +7,30 @@ import { generatePrice } from "../utils/utilities";
 
 export default async function loadSliderGames(): Promise<SliderPageGames> {
     try {
-        const [hottestResult, goatResult] = await Promise.all([
+        const [hottestResult, goatResult, preorderResult, lastYearResult] = await Promise.all([
                 fetchSliderGames("hottest"),
                 fetchSliderGames("goat"),
+                fetchSliderGames("preorder"),
+                fetchSliderGames("bestLastYear"),
             ])
         const goatWPrice = goatResult.map(game => ({
             ...game,
             price: generatePrice()
         }))
-        console.log([hottestResult, goatWPrice]);
+        const preoderWPrice = preorderResult.map(game => ({
+            ...game,
+            price: generatePrice()
+        }))
+        const bestLastYearWPrice = lastYearResult.map(game => ({
+            ...game,
+            price: generatePrice()
+        }))
+        console.log([hottestResult, goatWPrice, preoderWPrice, bestLastYearWPrice]);
         return {
             hottest: hottestResult,
             goat: goatWPrice,
+            preorder: preoderWPrice,
+            bestLastYear: bestLastYearWPrice,
         }
         
     } catch (err) {

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import get30DaysGap from '../utils/utilities';
+import get30DaysGap, { get30DaysNextGap } from '../utils/utilities';
 import { SliderApiResponse, SliderGame } from '../types/gameTypes';
 //remember to remove all the default later if I need to
 
@@ -13,6 +13,12 @@ export async function fetchSliderGames(filter: string): Promise<SliderGame[]> {
             break;
         case "goat":
             url_slider = `${URL}&ordering=-added&page_size=5&exclude_additions&parent_platforms=1,2,3`;
+            break;
+        case "preorder":
+            url_slider = `${URL}&ordering=-added&page_size=5&dates=${get30DaysNextGap()}`
+            break;
+        case "bestLastYear": 
+            url_slider = `${URL}&ordering=-added&page_size=5&dates=${new Date().getFullYear() - 1}-01-01,${new Date().getFullYear() - 1}-12-31`;
             break;
     }
     try {
