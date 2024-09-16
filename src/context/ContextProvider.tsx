@@ -1,4 +1,4 @@
-import { createContext, useState, ReactNode } from 'react';
+import { createContext, useState, ReactNode, useEffect } from 'react';
 import { SliderGame } from '../types/gameTypes';
 import { ContextGameType } from '../types/gameTypes';
 
@@ -8,12 +8,23 @@ export const GameContext = createContext<ContextGameType | null>(null)
 export function GameProvider({ children }: { children: ReactNode }) {
     const [favoriteGames, setFavoriteGames] = useState<SliderGame[]>([]);
 
+    useEffect(() => {
+        const savedFavorites = localStorage.getItem('favorites');
+        if (savedFavorites) {
+            setFavoriteGames(JSON.parse(savedFavorites));
+        }
+    }, []);
+
     const addFavorite = (game: SliderGame) => {
-        setFavoriteGames([...favoriteGames, game]);
+        const updatedFavorites = [...favoriteGames, game]
+        setFavoriteGames(updatedFavorites);
+        localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
     }
 
     const removeFavorite = (gameId: number) => {
-        setFavoriteGames(favoriteGames.filter(game => game.id!== gameId));
+        const updatedFavorites = favoriteGames.filter(game => game.id!== gameId);
+        setFavoriteGames(updatedFavorites);
+        localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
     }
 
     const value = {

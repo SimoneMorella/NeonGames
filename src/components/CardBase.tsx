@@ -22,7 +22,7 @@ export default function CardBase({ game }: GameProp) {
  
             }}>
                 <button
-                    className="absolute top-2 right-2 p-[2px] flex justify-center items-center bg-white bg-opacity-50 rounded-full opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-500"
+                    className="absolute top-2 right-2 p-[2px] flex justify-center items-center bg-white bg-opacity-70 rounded-full opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-500"
                     onClick={() => isFavorite ? removeFavorite(game.id): addFavorite(game)}>
                         {isFavorite 
                             ? (<IoHeartSharp className="w-4 h-4 text-[#FA4B9C]"/>)
