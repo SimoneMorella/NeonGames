@@ -25,3 +25,10 @@ export type SliderGameProps = {
 export type SliderApiResponse = {
     results: SliderGame[];
 }
+
+export type ContextGameType = {
+    favoriteGames: SliderGame[];
+    addFavorite: (game: SliderGame) => void;
+    removeFavorite: (gameId: number) => void;
+    // then add for cart items
+}

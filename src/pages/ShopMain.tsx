@@ -8,6 +8,7 @@ import { GiLaurelCrown, GiDiamondTrophy } from "react-icons/gi";
 import { TbRewindForward30 } from "react-icons/tb";
 import { SliderGameProps } from "../types/gameTypes";
 import CardBase from "../components/CardBase";
+import { get30DaysNextGap } from "../utils/utilities";
 
 
 export default function ShopMain ({ sliderGames }: SliderGameProps) {
@@ -71,7 +72,7 @@ export default function ShopMain ({ sliderGames }: SliderGameProps) {
                     <SwiperSlide>
                         <div className="h-[210px] flex justify-center items-center">
                             <Link 
-                                to='/shop/gamelist/top-of-all-time'
+                                to='/shop/gamelist/top-of-all-time?ordering=-added&page_size=20&exclude_additions&parent_platforms=1,2,3'
                                 className="neonLogo font-neon animate-textPulsate">
                                     See More...
                             </Link>
@@ -100,7 +101,7 @@ export default function ShopMain ({ sliderGames }: SliderGameProps) {
                     <SwiperSlide>
                         <div className="h-[210px] flex justify-center items-center">
                             <Link 
-                                to='/shop/gamelist/best-of-the-year'
+                                to={`/shop/gamelist/top-of-last-year?ordering=-added&page_size=20&dates=${new Date().getFullYear() - 1}-01-01,${new Date().getFullYear() - 1}-12-31`}
                                 className="neonLogo font-neon animate-textPulsate">
                                     See More...
                             </Link>
@@ -129,7 +130,7 @@ export default function ShopMain ({ sliderGames }: SliderGameProps) {
                     <SwiperSlide>
                         <div className="h-[210px] flex justify-center items-center">
                             <Link 
-                                to='/shop/gamelist/next-30-days'
+                                to={`/shop/gamelist/next-30-days?ordering=-added&page_size=20&dates=${get30DaysNextGap()}`}
                                 className="neonLogo font-neon animate-textPulsate">
                                     See More...
                             </Link>

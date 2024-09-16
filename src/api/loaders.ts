@@ -65,6 +65,7 @@ export default async function loadSliderGames(): Promise<SliderPageGames> {
 
 export async function loadGamesList({ request }: LoaderFunctionArgs) {
     try {
+        console.log('important' + request.url) // here I could say that 
         const { search } = new URL(request.url);
         const { ordering, page_size, dates, genres, platforms } = getQueryParameters(search);
 
@@ -80,9 +81,12 @@ export async function loadGamesList({ request }: LoaderFunctionArgs) {
         // Remove empty parameters
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const filteredParams = Object.fromEntries(Object.entries(params).filter(([_, v]) => v !== ""));
-        console.log(filteredParams)
         const response = await fetchGamesList(filteredParams);
-        return response;
+        const responseWPrice = response.map((item) => ({
+            ...item,
+            price: generatePrice()
+        }))
+        return responseWPrice;
     } catch (err) {
         if (err instanceof Error) {
             throw new Error(`Error in loading fetched Data: ${err.message}`);

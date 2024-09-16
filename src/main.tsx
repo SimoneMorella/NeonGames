@@ -7,6 +7,7 @@ import Layout from './pages/Layout.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import loadSliderGames, { loadGamesList } from './api/loaders.ts'
 import './index.css'
+import { GameProvider } from './context/ContextProvider.tsx'
 
 
 
@@ -39,6 +40,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <GameProvider>
+      <RouterProvider router={router} />
+    </GameProvider>
   </StrictMode>,
 )
