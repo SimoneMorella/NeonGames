@@ -25,7 +25,7 @@ const navigationInfo = [
     {
         name: 'This Week',
         icon: <GiFire className="w-5 h-5 text-white"/>,
-        path: '/shop/gamelist/this-week',
+        path: '/shop/gamelist?ordering=-added&page_size=20&dates=2024-09-09,2024-09-16',
     },
     {
         name: 'Last 30 Days',

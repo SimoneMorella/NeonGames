@@ -34,3 +34,14 @@ export function generatePrice() {
     const price = Math.floor(Math.random() * (69 - 15 + 1)) + 15;
     return `${price},99€`;
 }
+
+export function getQueryParameters(search: string) {
+    const urlParams = new URLSearchParams(search);
+    return {
+        ordering: urlParams.get('ordering') || "",
+        page_size: urlParams.get('page_size') || "",
+        dates: urlParams.get('dates') || "",
+        genres: urlParams.get('genres') || "",
+        platforms: urlParams.get('parent_platforms') || "",
+    }
+}

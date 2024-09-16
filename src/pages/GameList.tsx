@@ -1,10 +1,12 @@
-import { useParams } from "react-router-dom"
+import { useLoaderData } from "react-router-dom"
 
 export default function GameList() {
-    const { filter } = useParams();
+    const data = useLoaderData();
+    console.log(data);
+    // NOW IT WORKS AAAAAAAAAAAAAAA TOMORROW LET'S FINISH IT
     return (
         <div className="text-white">
-            Questo è la lista dei giochi {filter}
+            Questo è la lista dei giochi
         </div>
     )
 }

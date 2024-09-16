@@ -35,3 +35,21 @@ export async function fetchSliderGames(filter: string): Promise<SliderGame[]> {
         
     }
 }
+
+
+export async function fetchGamesList(params: { [key: string]: string }): Promise<SliderGame[]> {
+    try {
+        const query = new URLSearchParams(params).toString();
+        const url = `${URL}&${query}`;  // Assuming URL is your base API URL
+        console.log(url);
+        const response = await axios.get(url);
+        const data: SliderApiResponse = response.data;
+        return data.results;
+    } catch (err) {
+        if (err instanceof Error) {
+            throw new Error(`Failed to fetch RAWG data: ${err.message}`);
+        } else {
+            throw new Error('Failed to fetch RAWG data: Unknown error.');
+        }
+    }
+}
