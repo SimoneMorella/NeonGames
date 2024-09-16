@@ -29,7 +29,7 @@ const router = createBrowserRouter([
     loader: loadSliderGames,
     children: [
       {
-        path: "gamelist",
+        path: "/shop/gamelist/:list/",
         element: <GameList />,
         loader: loadGamesList,
       }
