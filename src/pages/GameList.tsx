@@ -12,7 +12,6 @@ export default function GameList() {
     const isFavoritePage = location.pathname.includes("favorite");
 
     const gamesToShow = isFavoritePage ? favoriteGames : data;
-    console.log(gamesToShow)
     const currentListInfo = navigationInfo.find(item => item.path === location.pathname + location.search);
     const currentListName = currentListInfo?.name;
     const currentListIcon = currentListInfo?.icon;

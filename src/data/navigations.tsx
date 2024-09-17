@@ -6,7 +6,7 @@ import { FaWindows, FaXbox, FaPlaystation, FaCampground, FaChessRook } from "rea
 import { BsNintendoSwitch } from "react-icons/bs";
 import { RiBoxingFill } from "react-icons/ri";
 import { MdOutlineSportsBasketball } from "react-icons/md";
-import get30DaysGap, { get30DaysNextGap } from "../utils/utilities";
+import get30DaysGap, { get30DaysNextGap, get7DaysGap } from "../utils/utilities";
 
 
 //later add function for this week gap create it and use it
@@ -26,7 +26,7 @@ const navigationInfo = [
     {
         name: 'This Week',
         icon: <GiFire className="w-5 h-5 text-white"/>,
-        path: '/shop/gamelist/this-week?ordering=-added&page_size=20&dates=2024-09-09,2024-09-16',
+        path: `/shop/gamelist/this-week?ordering=-added&page_size=20&dates=${get7DaysGap()}`,
     },
     {
         name: 'Last 30 Days',
