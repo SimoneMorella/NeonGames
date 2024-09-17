@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import loadSliderGames, { loadGamesList } from './api/loaders.ts'
 import './index.css'
 import { GameProvider } from './context/ContextProvider.tsx'
+import ShopMain from './pages/ShopMain.tsx'
 
 
 
@@ -27,8 +28,13 @@ const router = createBrowserRouter([
         <Shop />
       </Layout>
     ),
-    loader: loadSliderGames,
     children: [
+      {
+        index: true,
+        element: <ShopMain />,
+        loader: loadSliderGames,
+
+      },
       {
         path: "/shop/gamelist/:list/",
         element: <GameList />,

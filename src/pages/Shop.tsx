@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 import useScreenSizeCheck from "../hooks/useScreenSizeCheck.ts";
 import ShopNavigation from "../components/ShopNav.tsx";
-import ShopMain from "./ShopMain.tsx";
-import { SliderPageGames } from "../types/gameTypes.ts";
 import { HamburgerMenuIcon, Cross1Icon } from "@radix-ui/react-icons";
-import { Outlet, useLocation, useLoaderData } from "react-router-dom";
+import { Outlet, useLocation,  } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 
 
@@ -14,7 +12,6 @@ export default function Shop() {
     const [isMenuShown, setIsMenuShown] = useState(false);
     const [isBgBig, setIsBgBig] = useState(false);
     const location = useLocation();
-    const sliderGameData = useLoaderData() as SliderPageGames;
 
     useEffect(() => {
         setIsMenuShown(false);
@@ -70,10 +67,7 @@ export default function Shop() {
                     : (<HamburgerMenuIcon className="w-5 h-5"/>) 
                     }
                 </button>
-
-                {location.pathname === "/shop" 
-                    ? (<ShopMain sliderGames={sliderGameData}/>)
-                    : (<Outlet />)}
+                <Outlet />
 
 
            

@@ -91,17 +91,17 @@
 
 
 .swiper-pagination-bullet {
-    background-color: rgb(153, 150, 150);
+    background-color: rgb(153, 150, 150) !important;
 }
 
 .swiper-pagination-bullet-active {
-    background-color: #FA4B9C;
+    background-color: #FA4B9C !important;
 }
 
 .swiper-pagination-bullets.swiper-pagination-horizontal {
-    width: 100px;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 100px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
     background-color: rgba(0,0,0, 0.8);
     border-radius: 8px;
 

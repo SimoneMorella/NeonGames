@@ -65,7 +65,6 @@ export default async function loadSliderGames(): Promise<SliderPageGames> {
 
 export async function loadGamesList({ request }: LoaderFunctionArgs) {
     try {
-        console.log('important' + request.url) // here I could say that 
         const { search } = new URL(request.url);
         const { ordering, page_size, dates, genres, platforms } = getQueryParameters(search);
 

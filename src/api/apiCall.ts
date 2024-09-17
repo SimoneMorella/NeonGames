@@ -41,7 +41,6 @@ export async function fetchGamesList(params: { [key: string]: string }): Promise
     try {
         const query = new URLSearchParams(params).toString();
         const url = `${URL}&${query}`;  // Assuming URL is your base API URL
-        console.log(url);
         const response = await axios.get(url);
         const data: SliderApiResponse = response.data;
         return data.results;

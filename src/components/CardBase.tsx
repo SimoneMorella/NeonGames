@@ -6,7 +6,6 @@ import useGameContext from "../context/contextHook";
 export default function CardBase({ game }: GameProp) {
     const { favoriteGames, addFavorite, removeFavorite } = useGameContext();
     const isFavorite = favoriteGames.some(g => g.id === game.id);
-    console.log(favoriteGames);
     return (
         <div className="flex flex-col gap-2 group">
             <div id="img"

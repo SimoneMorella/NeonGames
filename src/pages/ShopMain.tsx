@@ -2,16 +2,17 @@ import {Swiper, SwiperSlide } from "swiper/react"
 import { Pagination, Autoplay } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { SiFireship } from "react-icons/si";
 import { GiLaurelCrown, GiDiamondTrophy } from "react-icons/gi";
 import { TbRewindForward30 } from "react-icons/tb";
-import { SliderGameProps } from "../types/gameTypes";
+import { SliderPageGames } from "../types/gameTypes";
 import CardBase from "../components/CardBase";
 import { get30DaysNextGap } from "../utils/utilities";
 
 
-export default function ShopMain ({ sliderGames }: SliderGameProps) {
+export default function ShopMain () {
+    const sliderGames = useLoaderData() as SliderPageGames;
     console.log(sliderGames)
     return (
         <div className="flex flex-col gap-10 py-8 px-8">
