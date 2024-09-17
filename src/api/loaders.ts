@@ -1,4 +1,4 @@
-import { fetchSliderGames, fetchGamesList } from "./apiCall";
+import { fetchSliderGames, fetchGamesList, fetchGameData, fetchGameScreenshots } from "./apiCall";
 import { SliderPageGames } from "../types/gameTypes";
 import { generatePrice, getQueryParameters } from "../utils/utilities";
 import { LoaderFunctionArgs } from "react-router-dom";
@@ -28,7 +28,6 @@ export default async function loadSliderGames(): Promise<SliderPageGames> {
             ...game,
             price: generatePrice()
         }))
-        console.log([hottestResult, goatWPrice, preoderWPrice, bestLastYearWPrice]);
         return {
             hottest: hottestResult,
             goat: goatWPrice,
@@ -45,23 +44,6 @@ export default async function loadSliderGames(): Promise<SliderPageGames> {
         
     }
 }
-// not working and still I don't like it
-// export async function loadGamesList({ request }: LoaderFunctionArgs) {
-//     try {
-//         const { search } = new URL(request.url);
-//         const { ordering, page_size, dates, genres, platforms } = getQueryParameters(search);
-//         const response = await fetchGamesList(`ordering=${ordering}&page_size=${page_size}&dates=${dates}&genres=${genres}&parent_platforms=${platforms}`)
-//         return response;
-//     } catch (err) {
-//         if (err instanceof Error) {
-//             throw new Error(`Error in loading fetched Data: ${err.message}`);
-//         } else {
-//             throw new Error('Error in loading fetched Data: unknown error')
-//         }
-        
-//     }
-// }
-
 
 export async function loadGamesList({ request }: LoaderFunctionArgs) {
     try {
@@ -94,4 +76,30 @@ export async function loadGamesList({ request }: LoaderFunctionArgs) {
         }
     }
 }
+
+export async function LoadGameData({ params }: LoaderFunctionArgs) {
+    try {
+        const { id } = params;
+        if (typeof id !== 'string') {
+            throw new Error('Invalid game ID');
+        }
+        const [ gameAlt, gameScreenshots ] = await Promise.all([
+            fetchGameData(parseInt(id)),
+            fetchGameScreenshots(parseInt(id))
+        ])
+        console.log(gameAlt, gameScreenshots);
+        return {
+            game: gameAlt,
+            screenshots: gameScreenshots
+        }
+
+    } catch (err) {
+        if (err instanceof Error) {
+            throw new Error(`Error in loading fetched Data: ${err.message}`);
+        } else {
+            throw new Error('Error in loading fetched Data: unknown error');
+        }
+    }
+}
+
 

@@ -13,7 +13,6 @@ import { get30DaysNextGap } from "../utils/utilities";
 
 export default function ShopMain () {
     const sliderGames = useLoaderData() as SliderPageGames;
-    console.log(sliderGames)
     return (
         <div className="flex flex-col gap-10 py-8 px-8">
             <div className="space-y-4">

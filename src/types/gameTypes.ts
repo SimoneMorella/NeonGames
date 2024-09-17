@@ -32,3 +32,55 @@ export type ContextGameType = {
     removeFavorite: (gameId: number) => void;
     // then add for cart items
 }
+
+type PlatformsObj = {
+    "platform": {
+        id: number,
+        name: string,
+    }
+}
+
+type Developer = {
+    id: number,
+    name: string,
+}
+
+type Genre = {
+    id: number,
+    name: string,
+}
+
+type Publisher = {
+    id: number,
+    name: string,
+}
+
+export type GameDataAlt = {
+    id: number;
+    name: string;
+    description: string;
+    metacritic: number;
+    released: string;
+    background_image: string;
+    background_image_additional?: string;
+    parent_platforms: PlatformsObj[];
+    developers: Developer[];
+    genres: Genre[];
+    publishers: Publisher[];
+}
+
+export type GameDataResponse = {
+    results: GameDataAlt[]
+}
+
+export type Screenshots = {
+    id: number;
+    image: string;
+    width: number;
+    height: number;
+}
+
+export type ScreenshotsResponse = {
+    results: Screenshots[];
+}
+

@@ -1,14 +1,15 @@
 import { GameProp } from "../types/gameTypes"
 import { IoHeartOutline, IoHeartSharp} from "react-icons/io5";
 import useGameContext from "../context/contextHook";
-
+import { Link } from "react-router-dom";
 
 export default function CardBase({ game }: GameProp) {
     const { favoriteGames, addFavorite, removeFavorite } = useGameContext();
     const isFavorite = favoriteGames.some(g => g.id === game.id);
     return (
         <div className="flex flex-col gap-2 group">
-            <div id="img"
+            <Link to={`/shop/game/${game.id}`} id="img"
+            state={{ game: game}}
             style={{
                 backgroundImage: `url(${game.background_image})`,
                 backgroundSize: 'cover',
@@ -21,8 +22,11 @@ export default function CardBase({ game }: GameProp) {
  
             }}>
                 <button
-                    className="absolute top-2 right-2 p-[2px] flex justify-center items-center bg-white bg-opacity-70 rounded-full opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-500"
-                    onClick={() => isFavorite ? removeFavorite(game.id): addFavorite(game)}>
+                    className="absolute z-10 top-2 right-2 p-[2px] flex justify-center items-center bg-white bg-opacity-70 rounded-full opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-500"
+                    onClick={(e) =>
+                        {e.preventDefault();
+                        if (isFavorite) removeFavorite(game.id)
+                        else addFavorite(game)}}>
                         {isFavorite 
                             ? (<IoHeartSharp className="w-4 h-4 text-[#FA4B9C]"/>)
                             : (<IoHeartOutline className="w-4 h-4 text-[#FA4B9C]"/>)
@@ -30,9 +34,11 @@ export default function CardBase({ game }: GameProp) {
 
                 </button>
 
-            </div>
+            </Link>
             <div className="flex flex-col gap-1">
-                <h3 className="font-bold text-sm">{game.name}</h3>
+                <Link to={`/shop/game/${game.id}`}>
+                    <h3 className="font-bold text-sm">{game.name}</h3>
+                </Link>
                 <p className="text-xs">{game.price}</p>
             </div>
         </div>

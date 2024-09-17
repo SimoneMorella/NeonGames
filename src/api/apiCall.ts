@@ -1,6 +1,6 @@
 import axios from 'axios';
 import get30DaysGap, { get30DaysNextGap } from '../utils/utilities';
-import { SliderApiResponse, SliderGame } from '../types/gameTypes';
+import { SliderApiResponse, SliderGame, GameDataResponse, ScreenshotsResponse } from '../types/gameTypes';
 //remember to remove all the default later if I need to
 
 const URL = 'https://api.rawg.io/api/games?key=174131b6a816487ebd53103081309606';
@@ -36,13 +36,42 @@ export async function fetchSliderGames(filter: string): Promise<SliderGame[]> {
     }
 }
 
-
 export async function fetchGamesList(params: { [key: string]: string }): Promise<SliderGame[]> {
     try {
         const query = new URLSearchParams(params).toString();
         const url = `${URL}&${query}`;  // Assuming URL is your base API URL
         const response = await axios.get(url);
         const data: SliderApiResponse = response.data;
+        return data.results;
+    } catch (err) {
+        if (err instanceof Error) {
+            throw new Error(`Failed to fetch RAWG data: ${err.message}`);
+        } else {
+            throw new Error('Failed to fetch RAWG data: Unknown error.');
+        }
+    }
+}
+
+export async function fetchGameData(id: number) {
+    try {
+        const url = `${URL.split('?')[0]}/${id}?${URL.split('?')[1]}`;
+        const response = await axios.get(url);
+        const data: GameDataResponse = response.data;
+        return data;
+    } catch (err) {
+        if (err instanceof Error) {
+            throw new Error(`Failed to fetch RAWG data: ${err.message}`);
+        } else {
+            throw new Error('Failed to fetch RAWG data: Unknown error.');
+        }
+    }
+}
+
+export async function fetchGameScreenshots(id: number) {
+    try {
+        const url = `${URL.split('?')[0]}/${id}/screenshots?${URL.split('?')[1]}`;
+        const response = await axios.get(url);
+        const data: ScreenshotsResponse = response.data;
         return data.results;
     } catch (err) {
         if (err instanceof Error) {

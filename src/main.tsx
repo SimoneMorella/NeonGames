@@ -4,8 +4,9 @@ import Home from './pages/Home.tsx'
 import Shop from './pages/Shop.tsx'
 import GameList from './pages/GameList.tsx'
 import Layout from './pages/Layout.tsx'
+import GamePage from './pages/GamePage.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import loadSliderGames, { loadGamesList } from './api/loaders.ts'
+import loadSliderGames, { loadGamesList, LoadGameData } from './api/loaders.ts'
 import './index.css'
 import { GameProvider } from './context/ContextProvider.tsx'
 import ShopMain from './pages/ShopMain.tsx'
@@ -41,6 +42,15 @@ const router = createBrowserRouter([
         loader: loadGamesList,
       }
     ]
+  },
+  {
+    path: "/shop/game/:id",
+    element: (
+      <Layout>
+        <GamePage />
+      </Layout>
+    ),
+    loader: LoadGameData,
   }
 ])
 
