@@ -142,4 +142,3 @@ export default function ShopMain () {
     )
 }
 
-// to finish the appearence of this cardBase stuff based on of all time grateast... then see how to fix the swiper.

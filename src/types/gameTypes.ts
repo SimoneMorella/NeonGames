@@ -58,7 +58,7 @@ type Publisher = {
 export type GameDataAlt = {
     id: number;
     name: string;
-    description: string;
+    description_raw: string;
     metacritic: number | null;
     released: string;
     background_image: string;

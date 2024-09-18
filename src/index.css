@@ -79,9 +79,6 @@
 
 }
 
-/* .container.expanded {
-    transform: scale(72);
-} */
 
 .shadowIco {
     color: #FA4B9C;
@@ -105,6 +102,14 @@
     background-color: rgba(0,0,0, 0.8);
     border-radius: 8px;
 
+}
+
+.scroll-content::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll-content {
+    scrollbar-width: none;
 }
 
 

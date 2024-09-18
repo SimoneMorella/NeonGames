@@ -11,9 +11,8 @@ export default function GamePage() {
     const {game, screenshots} = useLoaderData() as GamePageData;
     console.log(game);
     console.log(screenshots)
-    console.log(gameDataFromLink)
     return (
-        <div className="text-white font-montserrat flex flex-col gap-4 py-8 px-8">
+        <div className="text-white font-montserrat flex flex-col gap-6 py-8 px-8">
             <div>
                 <h2 className="font-bold text-xl">{game.name}</h2>
             </div>
@@ -56,7 +55,7 @@ export default function GamePage() {
                     <div className="flex gap-4 items-center">
                         <h4 className="font-bold text-sm">MetaScore:</h4>
                         <div 
-                            className={`${!game.metacritic ? 'bg-gray-800 bg-opacity-50' : game.metacritic < 51 ? 'bg-red-600' : game.metacritic < 81 ? 'bg-yellow-600' : 'bg-green-600'}
+                            className={`${!game.metacritic ? 'bg-gray-800 bg-opacity-50' : game.metacritic < 51 ? 'bg-red-600' : game.metacritic < 81 ? 'bg-yellow-500' : 'bg-green-600'}
                              w-12 h-7 rounded-lg flex justify-center items-center font-bold text-sm`}>
                             {game.metacritic}
                         </div>
@@ -65,9 +64,60 @@ export default function GamePage() {
                         <p>{gameDataFromLink.price}</p>
                     </div>
                 </div>
-                <div>
-
+                <div className="flex flex-col gap-2 font-bold text-sm">
+                    <button className="h-12 bg-[#FA4B9C] rounded-lg hover:bg-[#e86ca6] transition-colors">
+                        Add to cart
+                    </button>
+                    <button className="h-12 rounded-lg bg-white bg-opacity-40 hover:bg-opacity-50 transition-opacity">
+                        Add to favorite
+                    </button>
                 </div>
+                <div className="flex flex-col gap-1">
+                    <div className="flex justify-between items-center text-sm font-bold py-2 border-b border-b-white border-opacity-35">
+                        <h4 className="text-white text-opacity-65">Genre</h4>
+                        <div className="space-x-2 text-right">
+                            {game.genres.map(genre => (
+                                <span key={genre.id}>{genre.name}</span>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="flex justify-between items-center text-sm font-bold py-2 border-b border-b-white border-opacity-35">
+                        <h4 className="text-white text-opacity-65">Developer</h4>
+                        <div className="space-x-2 text-right">
+                            {game.developers.length === 0 ? "TBA" : game.developers.map(dev => (
+                                <span key={dev.id}>{dev.name}</span>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="flex justify-between items-center text-sm font-bold py-2 border-b border-b-white border-opacity-35">
+                        <h4 className="text-white text-opacity-65">Publisher</h4>
+                        <div className="space-x-2 text-right">
+                            {game.publishers.length === 0 ? "TBA" : game.publishers.map(pub => (
+                                <span key={pub.id}>{pub.name}</span>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="flex justify-between items-center text-sm font-bold py-2 border-b border-b-white border-opacity-35">
+                        <h4 className="text-white text-opacity-65">Released</h4>
+                        <div className="space-x-2">
+                            {game.released ? game.released : "TBA"}
+                        </div>
+                    </div>
+                    <div className="flex justify-between items-center text-sm font-bold py-2 border-b border-b-white border-opacity-35">
+                        <h4 className="text-white text-opacity-65">Platform</h4>
+                        <div className="space-x-2 text-right">
+                            {game.parent_platforms.map(pub => (
+                                <span key={pub.platform.id}>{pub.platform.name}</span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className="h-72 relative overflow-auto rounded-md scroll-content">
+                    <h5 className="font-bold text-lg pb-2">Description</h5>
+                    <p className="text-sm">{game.description_raw}</p> 
+                    <div className="sticky -bottom-1 inset-x-0 h-10 bg-gradient-to-t from-zinc-700 to-transparent"></div>
+                </div>
+
         </div>
     )
 }
