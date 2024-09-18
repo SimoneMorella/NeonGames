@@ -59,7 +59,7 @@ export type GameDataAlt = {
     id: number;
     name: string;
     description: string;
-    metacritic: number;
+    metacritic: number | null;
     released: string;
     background_image: string;
     background_image_additional?: string;
@@ -67,10 +67,6 @@ export type GameDataAlt = {
     developers: Developer[];
     genres: Genre[];
     publishers: Publisher[];
-}
-
-export type GameDataResponse = {
-    results: GameDataAlt[]
 }
 
 export type Screenshots = {
@@ -82,5 +78,10 @@ export type Screenshots = {
 
 export type ScreenshotsResponse = {
     results: Screenshots[];
+}
+
+export type GamePageData = {
+    game: GameDataAlt;
+    screenshots: Screenshots[];
 }
 

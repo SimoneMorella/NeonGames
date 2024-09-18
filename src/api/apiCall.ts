@@ -1,6 +1,6 @@
 import axios from 'axios';
 import get30DaysGap, { get30DaysNextGap } from '../utils/utilities';
-import { SliderApiResponse, SliderGame, GameDataResponse, ScreenshotsResponse } from '../types/gameTypes';
+import { SliderApiResponse, SliderGame, ScreenshotsResponse, GameDataAlt } from '../types/gameTypes';
 //remember to remove all the default later if I need to
 
 const URL = 'https://api.rawg.io/api/games?key=174131b6a816487ebd53103081309606';
@@ -56,7 +56,7 @@ export async function fetchGameData(id: number) {
     try {
         const url = `${URL.split('?')[0]}/${id}?${URL.split('?')[1]}`;
         const response = await axios.get(url);
-        const data: GameDataResponse = response.data;
+        const data: GameDataAlt = response.data;
         return data;
     } catch (err) {
         if (err instanceof Error) {

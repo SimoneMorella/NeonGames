@@ -1,5 +1,5 @@
 import { fetchSliderGames, fetchGamesList, fetchGameData, fetchGameScreenshots } from "./apiCall";
-import { SliderPageGames } from "../types/gameTypes";
+import { SliderPageGames, GamePageData } from "../types/gameTypes";
 import { generatePrice, getQueryParameters } from "../utils/utilities";
 import { LoaderFunctionArgs } from "react-router-dom";
 
@@ -77,7 +77,7 @@ export async function loadGamesList({ request }: LoaderFunctionArgs) {
     }
 }
 
-export async function LoadGameData({ params }: LoaderFunctionArgs) {
+export async function LoadGameData({ params }: LoaderFunctionArgs): Promise<GamePageData> {
     try {
         const { id } = params;
         if (typeof id !== 'string') {
@@ -87,7 +87,6 @@ export async function LoadGameData({ params }: LoaderFunctionArgs) {
             fetchGameData(parseInt(id)),
             fetchGameScreenshots(parseInt(id))
         ])
-        console.log(gameAlt, gameScreenshots);
         return {
             game: gameAlt,
             screenshots: gameScreenshots

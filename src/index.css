@@ -99,7 +99,7 @@
 }
 
 .swiper-pagination-bullets.swiper-pagination-horizontal {
-    width: 100px !important;
+    width: 120px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
     background-color: rgba(0,0,0, 0.8);
