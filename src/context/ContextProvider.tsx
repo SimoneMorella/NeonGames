@@ -7,11 +7,16 @@ export const GameContext = createContext<ContextGameType | null>(null)
 
 export function GameProvider({ children }: { children: ReactNode }) {
     const [favoriteGames, setFavoriteGames] = useState<SliderGame[]>([]);
+    const [cart, setCart] = useState<SliderGame[]>([]);
 
     useEffect(() => {
         const savedFavorites = localStorage.getItem('favorites');
         if (savedFavorites) {
             setFavoriteGames(JSON.parse(savedFavorites));
+        }
+        const savedCart = localStorage.getItem('cart');
+        if (savedCart) {
+            setCart(JSON.parse(savedCart))
         }
     }, []);
 
@@ -27,11 +32,25 @@ export function GameProvider({ children }: { children: ReactNode }) {
         localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
     }
 
+    const addToCart = (game: SliderGame) => {
+        const updatedCart = [...cart, game]
+        setCart(updatedCart);
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+    }
+
+    const removeFromCart = (gameId: number) => {
+        const updatedCart = cart.filter(game => game.id!== gameId);
+        setCart(updatedCart);
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+    }
+
     const value = {
         favoriteGames,
         addFavorite,
         removeFavorite,
-        //then add for cart here
+        cart,
+        addToCart,
+        removeFromCart,
     }
 
     return (

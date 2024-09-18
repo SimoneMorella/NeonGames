@@ -2,15 +2,18 @@ import { useLocation, useLoaderData } from "react-router-dom"
 import { SliderGame, GamePageData } from "../types/gameTypes";
 import {Swiper, SwiperSlide } from "swiper/react"
 import { Pagination, Autoplay } from "swiper/modules";
+import useGameContext from "../context/contextHook";
 import 'swiper/css';
 import 'swiper/css/pagination';
 
 export default function GamePage() {
     const location = useLocation();
     const gameDataFromLink = location.state?.game as SliderGame;
-    const {game, screenshots} = useLoaderData() as GamePageData;
-    console.log(game);
-    console.log(screenshots)
+    const { game, screenshots } = useLoaderData() as GamePageData;
+    const { favoriteGames, addFavorite, removeFavorite, cart, addToCart, removeFromCart } = useGameContext();
+    const isFavorite = favoriteGames.some(g => g.id === game.id);
+    const isInCart = cart.some(g => g.id === game.id);
+    console.log(cart)
     return (
         <div className="text-white font-montserrat flex flex-col gap-6 py-8 px-8">
             <div>
@@ -65,11 +68,15 @@ export default function GamePage() {
                     </div>
                 </div>
                 <div className="flex flex-col gap-2 font-bold text-sm">
-                    <button className="h-12 bg-[#FA4B9C] rounded-lg hover:bg-[#e86ca6] transition-colors">
-                        Add to cart
+                    <button 
+                        className="h-12 bg-[#FA4B9C] rounded-lg hover:bg-[#e86ca6] transition-colors"
+                        onClick={() => isInCart ? removeFromCart(game.id) :addToCart(gameDataFromLink)}>
+                        {isInCart ? 'Remove from Cart' : 'Add to Cart'}
                     </button>
-                    <button className="h-12 rounded-lg bg-white bg-opacity-40 hover:bg-opacity-50 transition-opacity">
-                        Add to favorite
+                    <button 
+                        className="h-12 rounded-lg bg-white bg-opacity-40 hover:bg-opacity-50 transition-opacity"
+                        onClick={() => isFavorite ? removeFavorite(game.id): addFavorite(gameDataFromLink)}>
+                        {isFavorite ? 'Remove from Favorite' : 'Add to Favorite'}
                     </button>
                 </div>
                 <div className="flex flex-col gap-1">
@@ -112,10 +119,10 @@ export default function GamePage() {
                         </div>
                     </div>
                 </div>
-                <div className="h-72 relative overflow-auto rounded-md scroll-content">
+                <div className="h-72 relative overflow-auto rounded-lg scroll-content">
                     <h5 className="font-bold text-lg pb-2">Description</h5>
                     <p className="text-sm">{game.description_raw}</p> 
-                    <div className="sticky -bottom-1 inset-x-0 h-10 bg-gradient-to-t from-zinc-700 to-transparent"></div>
+                    <div className="sticky -bottom-1 inset-x-0 h-7 rounded-lg bg-gradient-to-t from-zinc-700 to-transparent"></div>
                 </div>
 
         </div>
