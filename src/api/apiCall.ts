@@ -9,7 +9,7 @@ export async function fetchSliderGames(filter: string): Promise<SliderGame[]> {
     let url_slider = URL;
     switch (filter) {
         case 'hottest':
-            url_slider = `${URL}&dates=${get30DaysGap()}&ordering=-rating&page_size=5`;
+            url_slider = `${URL}&dates=${get30DaysGap()}&ordering=-rating&page_size=6`;
             break;
         case "goat":
             url_slider = `${URL}&ordering=-added&page_size=5&exclude_additions&parent_platforms=1,2,3`;

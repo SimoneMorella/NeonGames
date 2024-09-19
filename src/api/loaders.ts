@@ -16,6 +16,12 @@ export default async function loadSliderGames(): Promise<SliderPageGames> {
                 fetchSliderGames("preorder"),
                 fetchSliderGames("bestLastYear"),
             ])
+        
+        const hottestWPrice = hottestResult.map(game => ({
+            ...game,
+            price: generatePrice()
+        }))    
+        
         const goatWPrice = goatResult.map(game => ({
             ...game,
             price: generatePrice()
@@ -29,7 +35,7 @@ export default async function loadSliderGames(): Promise<SliderPageGames> {
             price: generatePrice()
         }))
         return {
-            hottest: hottestResult,
+            hottest: hottestWPrice.slice(1, 6),
             goat: goatWPrice,
             preorder: preoderWPrice,
             bestLastYear: bestLastYearWPrice,

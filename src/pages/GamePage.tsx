@@ -13,7 +13,7 @@ export default function GamePage() {
     const { favoriteGames, addFavorite, removeFavorite, cart, addToCart, removeFromCart } = useGameContext();
     const isFavorite = favoriteGames.some(g => g.id === game.id);
     const isInCart = cart.some(g => g.id === game.id);
-    console.log(cart)
+    console.log(game, gameDataFromLink)
     return (
         <div className="text-white font-montserrat flex flex-col gap-6 py-8 px-8">
             <div>
@@ -113,7 +113,7 @@ export default function GamePage() {
                     <div className="flex justify-between items-center text-sm font-bold py-2 border-b border-b-white border-opacity-35">
                         <h4 className="text-white text-opacity-65">Platform</h4>
                         <div className="space-x-2 text-right">
-                            {game.parent_platforms.map(pub => (
+                            {game.parent_platforms.length === 0 ? "TBA" : game.parent_platforms.map(pub => (
                                 <span key={pub.platform.id}>{pub.platform.name}</span>
                             ))}
                         </div>
@@ -121,7 +121,7 @@ export default function GamePage() {
                 </div>
                 <div className="h-72 relative overflow-auto rounded-lg scroll-content">
                     <h5 className="font-bold text-lg pb-2">Description</h5>
-                    <p className="text-sm">{game.description_raw}</p> 
+                    <p className="text-sm">{game.description_raw ? game.description_raw : "No Description available for this game."}</p> 
                     <div className="sticky -bottom-1 inset-x-0 h-7 rounded-lg bg-gradient-to-t from-zinc-700 to-transparent"></div>
                 </div>
 

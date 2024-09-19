@@ -13,6 +13,7 @@ import { get30DaysNextGap } from "../utils/utilities";
 
 export default function ShopMain () {
     const sliderGames = useLoaderData() as SliderPageGames;
+    console.log(sliderGames.hottest)
     return (
         <div className="flex flex-col gap-10 py-8 px-8">
             <div className="space-y-4">
@@ -33,20 +34,28 @@ export default function ShopMain () {
                     >
                     { sliderGames.hottest.map((game) => {
                         return (
+
                             <SwiperSlide
-                                key={game.id}
+                            key={game.id}
                                 style={{
+                                    position: "relative",
                                     backgroundImage: `url(${game.background_image})`,
                                     backgroundSize: 'cover',
                                     backgroundPosition: 'center',
                                     height: '100%',
                                     borderRadius: '8px',
                                 }}>
+                                <Link
+                                    className="absolute w-full h-full"
+                                    to={`/shop/game/${game.id}`}
+                                    state={{ game: game}}>
+                                </Link>
                                 <h4 className="text-white font-montserrat w-fit mt-2 ml-2 px-2 rounded-lg bg-black bg-opacity-60">
                                     {game.name}
                                 </h4>
                                 
                             </SwiperSlide>
+
                         )
                     })}
                 </Swiper>
