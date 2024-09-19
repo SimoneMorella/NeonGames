@@ -1,6 +1,6 @@
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons"
 import { PiShoppingCart } from "react-icons/pi";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Cart from "./Cart";
 import useGameContext from "../context/contextHook";
@@ -9,11 +9,13 @@ import { AnimatePresence, motion } from "framer-motion";
 
 export default function Navbar() {
     const [isCartOpen, setIsCartOpen] = useState(false);
+    const location = useLocation();
     const { cart } = useGameContext(); 
 
     useEffect(() => {
         if (isCartOpen) {
             document.body.classList.add("overflow-hidden");
+
         } else {
             document.body.classList.remove("overflow-hidden");
         }
@@ -21,6 +23,10 @@ export default function Navbar() {
             document.body.classList.remove("overflow-hidden");
         }
     },[isCartOpen])
+
+        useEffect(() => {
+            setIsCartOpen(false);
+        }, [location, setIsCartOpen]);
 
     function toggleCartOpen() {
         setIsCartOpen(!isCartOpen);

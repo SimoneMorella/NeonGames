@@ -1,6 +1,6 @@
 import useGameContext from "../context/contextHook"
 import { IoMdCloseCircle } from "react-icons/io";
-
+import { Link } from "react-router-dom";
 
 // let's finish cart tomorrow!
 export default function Cart() {
@@ -18,7 +18,9 @@ export default function Cart() {
             <div className="flex-1 py-4 space-y-1 overflow-auto scroll-content">
                 {cart.map(game => {
                     return (
-                        <div 
+                        <Link
+                            to={`/shop/game/${game.id}`} 
+                            state={{game: game}}
                             key={game.id}
                             className="rounded-lg relative w-full min-h-20 bg-black bg-opacity-40 px-2 py-[6px] flex gap-2 items-center">
                             <div
@@ -40,7 +42,7 @@ export default function Cart() {
                                 className="absolute top-1 right-1">
                                 <IoMdCloseCircle className=" w-4 h-4 text-white"/>
                             </button>
-                        </div>
+                        </Link>
                     )
                 })}
             </div>
