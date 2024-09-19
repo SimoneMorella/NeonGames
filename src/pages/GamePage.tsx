@@ -84,7 +84,7 @@ export default function GamePage() {
                         <h4 className="text-white text-opacity-65">Genre</h4>
                         <div className="space-x-2 text-right">
                             {game.genres.map(genre => (
-                                <span key={genre.id}>{genre.name}</span>
+                                <span key={genre.id} className="tracking-tighter">{genre.name}</span>
                             ))}
                         </div>
                     </div>
@@ -92,7 +92,7 @@ export default function GamePage() {
                         <h4 className="text-white text-opacity-65">Developer</h4>
                         <div className="space-x-2 text-right">
                             {game.developers.length === 0 ? "TBA" : game.developers.map(dev => (
-                                <span key={dev.id}>{dev.name}</span>
+                                <span key={dev.id} className="tracking-tighter">{dev.name}</span>
                             ))}
                         </div>
                     </div>
@@ -100,7 +100,7 @@ export default function GamePage() {
                         <h4 className="text-white text-opacity-65">Publisher</h4>
                         <div className="space-x-2 text-right">
                             {game.publishers.length === 0 ? "TBA" : game.publishers.map(pub => (
-                                <span key={pub.id}>{pub.name}</span>
+                                <span key={pub.id} className="tracking-tighter">{pub.name}</span>
                             ))}
                         </div>
                     </div>
@@ -114,7 +114,7 @@ export default function GamePage() {
                         <h4 className="text-white text-opacity-65">Platform</h4>
                         <div className="space-x-2 text-right">
                             {game.parent_platforms.length === 0 ? "TBA" : game.parent_platforms.map(pub => (
-                                <span key={pub.platform.id}>{pub.platform.name}</span>
+                                <span key={pub.platform.id} className="tracking-tighter">{pub.platform.name}</span>
                             ))}
                         </div>
                     </div>

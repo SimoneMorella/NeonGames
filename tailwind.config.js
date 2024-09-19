@@ -14,7 +14,8 @@ export default {
       },
       backgroundImage: {
         customBg: 'linear-gradient(165deg, rgba(0,0,0,1) 0%, rgba(27,11,28,1) 70%, rgba(52,22,46,1) 100%);',
-        navShopBg: 'linear-gradient(165deg, rgba(52,22,46,1) 0%, rgba(137,120,134,1) 33%, rgba(255,255,255,1) 100%);'
+        navShopBg: 'linear-gradient(165deg, rgba(52,22,46,1) 0%, rgba(137,120,134,1) 33%, rgba(255,255,255,1) 100%);',
+        cartBg: 'linear-gradient(157deg, rgba(32,32,32,1) 0%, rgba(15,13,15,1) 82%, rgba(80,58,75,1) 100%);'
       },
       keyframes: {
         textPulsate: {

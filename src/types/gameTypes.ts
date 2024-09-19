@@ -33,6 +33,7 @@ export type ContextGameType = {
     removeFavorite: (gameId: number) => void;
     addToCart: (game: SliderGame) => void;
     removeFromCart: (gameId: number) => void;
+    clearCart: () => void;
 }
 
 type PlatformsObj = {

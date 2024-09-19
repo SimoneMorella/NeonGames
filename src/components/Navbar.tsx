@@ -3,10 +3,13 @@ import { PiShoppingCart } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Cart from "./Cart";
+import useGameContext from "../context/contextHook";
+import { AnimatePresence, motion } from "framer-motion";
 
 
 export default function Navbar() {
     const [isCartOpen, setIsCartOpen] = useState(false);
+    const { cart } = useGameContext(); 
 
     useEffect(() => {
         if (isCartOpen) {
@@ -39,22 +42,35 @@ export default function Navbar() {
                 </label>
             </form>
             <button 
-                className="p-2 text-white"
+                className="p-2 text-white relative"
                 onClick={() => toggleCartOpen()}>
                 <PiShoppingCart className="w-6 h-6"/>
+                { cart.length > 0 && (<div className="w-2 h-2 bg-[#FA4B9C] rounded-full absolute top-2 right-[6px]"></div>)}
             </button>
-            {isCartOpen && (
-                <>
-                    <div className="absolute z-50 top-0 right-0 w-[250px] h-full bg-white p-4 shadow-md">
-                        <Cart />
-                    </div>
-                    <div 
-                        onClick={() => toggleCartOpen()}
-                        className="absolute top-0 right-0 z-40 w-full h-full bg-black opacity-40"
-                        ></div>
-                </>
+            <AnimatePresence>
+                {isCartOpen && (
+                    <>
+                        <motion.div 
+                            initial={{ x: '280px' }}
+                            animate={{ x: 0 }}
+                            exit= {{ x: '280px' }}
+                            transition={{ duration: 0.3, ease: 'easeOut' }}
+                            className="absolute z-50 top-0 right-0 w-[280px] h-full bg-cartBg p-4 shadow-md">
+                            <Cart />
+                        </motion.div>
+                        <motion.div 
+                            initial={{opacity: 0}}
+                            animate={{ opacity: 0.5}}
+                            exit={{opacity: 0}}
+                            transition={{duration: 0.3}}
+                            onClick={() => toggleCartOpen()}
+                            className="absolute top-0 right-0 z-40 w-full h-full bg-black opacity-50">
+                        </motion.div>
+                    </>
 
-            )}
+                )}
+            </AnimatePresence>
+
         </nav>
     )
 }

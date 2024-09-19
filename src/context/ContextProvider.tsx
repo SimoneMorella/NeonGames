@@ -44,6 +44,11 @@ export function GameProvider({ children }: { children: ReactNode }) {
         localStorage.setItem('cart', JSON.stringify(updatedCart));
     }
 
+    const clearCart = () =>  {
+        setCart([]);
+        localStorage.setItem('cart', JSON.stringify([]));
+    }
+
     const value = {
         favoriteGames,
         addFavorite,
@@ -51,6 +56,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
         cart,
         addToCart,
         removeFromCart,
+        clearCart,
     }
 
     return (
