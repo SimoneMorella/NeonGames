@@ -9,6 +9,7 @@ import './index.css'
 import { GameProvider } from './context/ContextProvider.tsx'
 import { ShopMain, GameList, GamePage } from './utils/lazyLoad.ts'
 import Loading from './components/Loading.tsx'
+import ErrorPage from './pages/ErrorPage.tsx'
 
 
 
@@ -20,6 +21,12 @@ const router = createBrowserRouter([
         <Home />
       </Layout>
     ),
+    errorElement: (
+      <Layout>
+        <ErrorPage/>
+      </Layout>
+      
+  )
   },
   {
     path: "/shop",
