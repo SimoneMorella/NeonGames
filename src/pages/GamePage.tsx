@@ -8,12 +8,15 @@ import 'swiper/css/pagination';
 
 export default function GamePage() {
     const location = useLocation();
-    const gameDataFromLink = location.state?.game as SliderGame;
-    const { game, screenshots } = useLoaderData() as GamePageData;
     const { favoriteGames, addFavorite, removeFavorite, cart, addToCart, removeFromCart } = useGameContext();
+    const gameDataFromLink = location.state?.game as SliderGame;
+    const gameData = useLoaderData() as GamePageData;
+    if (!gameData) {
+        return null;
+    }
+    const { game, screenshots } = gameData;
     const isFavorite = favoriteGames.some(g => g.id === game.id);
     const isInCart = cart.some(g => g.id === game.id);
-    console.log(game, gameDataFromLink)
     return (
         <div className="text-white font-montserrat flex flex-col gap-6 py-8 px-8">
             <div>
