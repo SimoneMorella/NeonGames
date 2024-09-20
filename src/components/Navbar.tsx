@@ -1,11 +1,10 @@
-import { MagnifyingGlassIcon } from "@radix-ui/react-icons"
 import { PiShoppingCart } from "react-icons/pi";
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Cart from "./Cart";
 import useGameContext from "../context/contextHook";
 import { AnimatePresence, motion } from "framer-motion";
-
+import SearchBar from "./SearchBar";
 
 export default function Navbar() {
     const [isCartOpen, setIsCartOpen] = useState(false);
@@ -37,16 +36,7 @@ export default function Navbar() {
                 <span className="neonLogo relative top-[2px] animate-textPulsate">N<span className="hidden lg:inline">eon</span></span>
                 <span className="font-cyberWay relative z-10 text-white -ml-2 lg:ml-0">G<span className="hidden lg:inline">ames</span></span>
             </Link>
-            {/* qua serve il form dopo  */}
-            <form className="relative flex justify-center">
-                <input 
-                placeholder="Search game..."
-                id="searchBox"
-                className="font-montserrat  text-sm px-2 py-[6px] rounded-lg w-44 focus:w-56 focus:outline-none transition-all"/>
-                <label htmlFor="searchBox" className="absolute right-1 top-0 bottom-0 flex items-center">
-                    <MagnifyingGlassIcon className="w-[18px] h-[18px]"/>
-                </label>
-            </form>
+            <SearchBar />
             <button 
                 className="p-2 text-white relative"
                 onClick={() => toggleCartOpen()}>

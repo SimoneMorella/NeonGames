@@ -1,7 +1,7 @@
 import axios from 'axios';
 import get30DaysGap, { get30DaysNextGap } from '../utils/utilities';
 import { SliderApiResponse, SliderGame, ScreenshotsResponse, GameDataAlt } from '../types/gameTypes';
-//remember to remove all the default later if I need to
+import { generatePrice } from '../utils/utilities';
 
 const URL = 'https://api.rawg.io/api/games?key=174131b6a816487ebd53103081309606';
 
@@ -73,6 +73,25 @@ export async function fetchGameScreenshots(id: number) {
         const response = await axios.get(url);
         const data: ScreenshotsResponse = response.data;
         return data.results;
+    } catch (err) {
+        if (err instanceof Error) {
+            throw new Error(`Failed to fetch RAWG data: ${err.message}`);
+        } else {
+            throw new Error('Failed to fetch RAWG data: Unknown error.');
+        }
+    }
+}
+
+export async function fetchGameQuery(query: string): Promise<SliderGame[]> {
+    try {
+        const url = `${URL}&search_precise&page_size=4&search=${query}`;
+        const response = await axios.get(url);
+        const data: SliderApiResponse = response.data;
+        const resultsWPrice = data.results.map((game) => ({
+            ...game,
+            price: generatePrice(),
+        }))
+        return resultsWPrice;
     } catch (err) {
         if (err instanceof Error) {
             throw new Error(`Failed to fetch RAWG data: ${err.message}`);

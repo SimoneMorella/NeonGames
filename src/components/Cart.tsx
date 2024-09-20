@@ -38,8 +38,10 @@ export default function Cart() {
                                 <div className="text-xs">{game.price}</div>
                             </div>
                             <button
-                                onClick={() => removeFromCart(game.id)} 
-                                className="absolute top-1 right-1">
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    removeFromCart(game.id)}} 
+                                className="absolute z-10 top-1 right-1">
                                 <IoMdCloseCircle className=" w-4 h-4 text-white"/>
                             </button>
                         </Link>
