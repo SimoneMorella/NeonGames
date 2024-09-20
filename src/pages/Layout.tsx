@@ -18,7 +18,7 @@ export default function Layout({ children }: LayoutProps) {
             initial={{ opacity: 0, x: "10px" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ x: "10px", opacity: 0 }}
-            transition={{duration: 0.5}}
+            transition={{duration: 0.2}}
             >
             {children}
           </motion.div>
@@ -27,3 +27,12 @@ export default function Layout({ children }: LayoutProps) {
       </div>
     );
   }
+
+export function LayoutNoAnim({ children } : LayoutProps) {
+  return (
+    <div className="min-h-svh bg-customBg flex flex-col">
+      <Navbar />
+      {children}
+  </div>
+  )
+}

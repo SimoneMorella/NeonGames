@@ -84,7 +84,7 @@ export async function fetchGameScreenshots(id: number) {
 
 export async function fetchGameQuery(query: string): Promise<SliderGame[]> {
     try {
-        const url = `${URL}&search_precise&page_size=4&search=${query}`;
+        const url = `${URL}&search_precise&page_size=5&search=${query}`;
         const response = await axios.get(url);
         const data: SliderApiResponse = response.data;
         const resultsWPrice = data.results.map((game) => ({

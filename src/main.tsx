@@ -2,7 +2,7 @@ import { StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import Home from './pages/Home.tsx'
 import Shop from './pages/Shop.tsx'
-import Layout from './pages/Layout.tsx'
+import Layout, { LayoutNoAnim } from './pages/Layout.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import loadSliderGames, { loadGamesList, LoadGameData } from './api/loaders.ts'
 import './index.css'
@@ -31,10 +31,16 @@ const router = createBrowserRouter([
   {
     path: "/shop",
     element: (
-      <Layout>
+      <LayoutNoAnim>
         <Shop />     
-      </Layout>
+      </LayoutNoAnim>
     ),
+    errorElement: (
+      <Layout>
+        <ErrorPage/>
+      </Layout>
+      
+  ),
     children: [
       {
         index: true,
@@ -65,6 +71,12 @@ const router = createBrowserRouter([
       </Layout>
     ),
     loader: LoadGameData,
+    errorElement: (
+      <Layout>
+        <ErrorPage/>
+      </Layout>
+      
+  )
   }
 ])
 

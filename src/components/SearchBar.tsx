@@ -51,12 +51,13 @@ export default function SearchBar() {
             <MagnifyingGlassIcon className="w-[18px] h-[18px]"/>
         </label>
         { (isFocused && results.length > 0) && (
-            <div className="mt-1 space-y-2 py-2 px-1 bg-white bg-opacity-95 absolute top-full w-full max-h-[300px] z-10 rounded-lg shadow-xl">
+            <div className="mt-1 py-2 px-2 overflow-y-auto bg-white bg-opacity-95 absolute top-full w-full max-h-[300px] z-10 rounded-lg shadow-xl">
                 {results.map((game) => (
                     <Link
                         to={`/shop/game/${game.id}`}
                         state={{ game: game}}
-                        key={game.id} className="flex items-center gap-2"
+                        key={game.id} 
+                        className="flex items-center gap-2 py-2 border-b border-b-black border-opacity-20 min-h-[65px] hover:bg-black hover:bg-opacity-10"
                         onMouseDown={(e) => e.preventDefault()}
                         onTouchStart={(e) => e.preventDefault()}>
                         <img src={game.background_image} alt={game.name} className="w-12 h-12 object-cover rounded-lg"/>

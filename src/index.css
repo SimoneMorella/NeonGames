@@ -3,15 +3,16 @@
 @tailwind utilities;
 
 
-* {
+/* * {
     border: 1px solid red;
-}
+} */
 
 @font-face {
     font-family: 'NeonNeon';
     src: url('./assets/fonts/neonFont.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -19,6 +20,7 @@
     src: url('./assets/fonts/cyberWayFont.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -26,15 +28,14 @@
     src: url('./assets/fonts/montserrat.ttf') format('opentype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 .neonLogo {
     color: #FA4B9C;
+    will-change: text-shadow;
     text-shadow: 
         0 0 4px #ffffff4d,
-        0 0 6px #ffffff4d,
-        0 0 20px #FA4B9C,
-        0 0 30px #FA4B9C,
         0 0 40px #FA4B9C
 }
 
