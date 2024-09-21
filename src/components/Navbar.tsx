@@ -31,14 +31,18 @@ export default function Navbar() {
         setIsCartOpen(!isCartOpen);
     }
     return (
-        <nav className=" w-full flex items-center py-6 px-8 justify-between">
-            <Link to="/" className="font-neon text-3xl">
-                <span className="neonLogo relative top-[2px] animate-textPulsate">N<span className="hidden lg:inline">eon</span></span>
-                <span className="font-cyberWay relative z-10 text-white -ml-2 lg:ml-0">G<span className="hidden lg:inline">ames</span></span>
+        <nav className=" w-full flex items-center py-6 px-8 md:px-16 lg:px-8 justify-between">
+            <Link to="/" className="font-neon text-3xl flex relative">
+                <span className="neonLogo relative top-[2px] animate-textPulsate">
+                    N<span className="hidden absolute lg:inline lg:ml-[1px]">eon</span>
+                </span>
+                <span className="font-cyberWay relative lg:left-14 z-10 text-white -ml-2 lg:ml-0">
+                    G<span className="hidden  absolute lg:inline lg:ml-[2px]">ames</span>
+                </span>
             </Link>
             <SearchBar />
             <button 
-                className="p-2 text-white relative"
+                className="p-2 text-white relative lg:right-7"
                 onClick={() => toggleCartOpen()}>
                 <PiShoppingCart className="w-6 h-6"/>
                 { cart.length > 0 && (<div className="w-2 h-2 bg-[#FA4B9C] rounded-full absolute top-2 right-[6px]"></div>)}

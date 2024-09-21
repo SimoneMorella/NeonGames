@@ -46,7 +46,7 @@ export default function SearchBar() {
             id="searchBox"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="font-montserrat  text-sm px-2 py-[6px] rounded-lg w-44 focus:w-60 focus:outline-none transition-all"/>
+            className="font-montserrat  text-sm px-2 py-[6px] rounded-lg w-44 md:w-72 focus:w-60 md:focus:w-80 focus:outline-none transition-all"/>
         <label htmlFor="searchBox" className="absolute right-1 top-0 bottom-0 flex items-center">
             <MagnifyingGlassIcon className="w-[18px] h-[18px]"/>
         </label>
