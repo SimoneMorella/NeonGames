@@ -1,10 +1,11 @@
 import { useLocation, useLoaderData } from "react-router-dom"
 import { SliderGame, GamePageData } from "../types/gameTypes";
 import {Swiper, SwiperSlide } from "swiper/react"
-import { Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay, Navigation } from "swiper/modules";
 import useGameContext from "../context/contextHook";
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 export default function GamePage() {
     const location = useLocation();
@@ -18,20 +19,21 @@ export default function GamePage() {
     const isFavorite = favoriteGames.some(g => g.id === game.id);
     const isInCart = cart.some(g => g.id === game.id);
     return (
-        <div className="text-white font-montserrat flex flex-col gap-6 py-8 px-8">
-            <div>
-                <h2 className="font-bold text-xl">{game.name}</h2>
-            </div>
-            <Swiper
+        <div className="text-white font-montserrat flex flex-col lg:grid lg:grid-cols-7 gap-6 lg:gap-y-16 py-8 lg:py-20 px-8 sm:px-20 md:px-28 lg:px-8 2xl:max-w-[1520px] 2xl:mx-auto">
+            <div className="flex flex-col gap-4 lg:col-span-5 lg:gap-8">
+                <h2 className="font-bold text-xl md:text-3xl">{game.name}</h2>
+                <Swiper
                     spaceBetween={30}
                     centeredSlides={true}
                     pagination= {{clickable: true}}
-                    modules={[Pagination, Autoplay]}
+                    navigation={true}
+                    modules={[Pagination, Autoplay, Navigation]}
                     autoplay={{
                         delay: 3500,
                         disableOnInteraction: false,
+                        pauseOnMouseEnter: true,
                     }}
-                    className=" bg-transparent text-black w-full h-64 rounded-lg"
+                    className=" bg-transparent text-black w-full h-64 sm:h-80 md:h-96 lg:h-[700px] rounded-lg"
                     >
                     <SwiperSlide
                     style={{
@@ -57,6 +59,9 @@ export default function GamePage() {
                         )
                     })}
                 </Swiper>
+            </div>
+            
+                <div className="flex flex-col gap-8 col-span-2 lg:mt-16">
                 <div className="flex justify-between">
                     <div className="flex gap-4 items-center">
                         <h4 className="font-bold text-sm">MetaScore:</h4>
@@ -122,7 +127,10 @@ export default function GamePage() {
                         </div>
                     </div>
                 </div>
-                <div className="h-72 relative overflow-auto rounded-lg scroll-content">
+                
+
+                </div>
+                <div className="h-72 relative overflow-auto rounded-lg scroll-content lg:col-span-full">
                     <h5 className="font-bold text-lg pb-2">Description</h5>
                     <p className="text-sm">{game.description_raw ? game.description_raw : "No Description available for this game."}</p> 
                     <div className="sticky -bottom-1 inset-x-0 h-7 rounded-lg bg-gradient-to-t from-zinc-700 to-transparent"></div>

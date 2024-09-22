@@ -16,13 +16,13 @@ export default function GameList() {
     const currentListName = currentListInfo?.name;
     const currentListIcon = currentListInfo?.icon;
     return (
-        <div className="text-white font-montserrat flex flex-col gap-6 py-8 px-8">
-            <div className="flex items-center gap-3 font-cyberWay tracking-wider">
+        <div className="text-white font-montserrat flex flex-col gap-6 py-8 px-8 sm:px-14 md:px-8 xl:px-10 md:col-span-5 2xl:max-w-[1320px] 2xl:mx-auto">
+            <div className="flex items-center gap-3 xl:gap-5 font-cyberWay tracking-wider">
                 {currentListIcon && 
-                    cloneElement(currentListIcon, { className: "w-6 h-6 shadowIco" } )}
-                <h2 className="text-2xl -mb-1">{currentListName}</h2>
+                    cloneElement(currentListIcon, { className: "w-6 h-6 xl:w-8 xl:h-8 shadowIco" } )}
+                <h2 className="text-2xl xl:text-4xl -mb-1">{currentListName}</h2>
             </div>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-5">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-x-4 sm:gap-x-3 lg:gap-x-5 xl:gap-x-7 gap-y-5 lg:gap-y-7 xl:gap-y-9">
                 {gamesToShow.length !== 0
                 ? gamesToShow.map(game => {
                     return (

@@ -14,13 +14,12 @@ export default function CardBase({ game }: GameProp) {
                 backgroundImage: `url(${game.background_image})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                height: '210px',
                 borderRadius: '4px',
                 overflow: 'hidden',
                 boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
                 position: 'relative',
- 
-            }}>
+            }}
+            className="h-[220px] sm:h-[300px] md:h-[220px] lg:h-[250px] xl:h-[320px]">
                 <button
                     className="absolute z-10 top-2 right-2 p-[2px] flex justify-center items-center bg-white bg-opacity-70 rounded-full opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-500"
                     onClick={(e) =>
@@ -37,9 +36,9 @@ export default function CardBase({ game }: GameProp) {
             </Link>
             <div className="flex flex-col gap-1">
                 <Link to={`/shop/game/${game.id}`}>
-                    <h3 className="font-bold text-sm">{game.name}</h3>
+                    <h3 className="font-bold text-sm lg:text-base">{game.name}</h3>
                 </Link>
-                <p className="text-xs">{game.price}</p>
+                <p className="text-xs lg:text-sm">{game.price}</p>
             </div>
         </div>
     )

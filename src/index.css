@@ -102,7 +102,11 @@
     transform: translateX(-50%) !important;
     background-color: rgba(0,0,0, 0.8);
     border-radius: 8px;
+}
 
+.swiper-button-next,
+.swiper-button-prev {
+    color: #FA4B9C !important;
 }
 
 .scroll-content::-webkit-scrollbar {
@@ -111,6 +115,26 @@
 
 .scroll-content {
     scrollbar-width: none;
+}
+
+@media screen and (min-width: 530px) {
+    .swiper-container {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 200px) {
+    .swiper-button-next,
+    .swiper-button-prev {
+    visibility:hidden;
+}
+}
+
+@media screen and (min-width: 768px) {
+    .swiper-button-next,
+    .swiper-button-prev {
+    visibility: visible;
+}
 }
 
 

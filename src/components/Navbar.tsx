@@ -51,11 +51,11 @@ export default function Navbar() {
                 {isCartOpen && (
                     <>
                         <motion.div 
-                            initial={{ x: '280px' }}
+                            initial={{ x: '420px' }}
                             animate={{ x: 0 }}
-                            exit= {{ x: '280px' }}
+                            exit= {{ x: '360px' }}
                             transition={{ duration: 0.3, ease: 'easeOut' }}
-                            className="absolute z-50 top-0 right-0 w-[280px] h-full bg-cartBg p-4 shadow-md">
+                            className="absolute z-50 top-0 right-0 w-[280px] md:w-[360px] xl:w-[420px] h-full bg-cartBg p-4 shadow-md">
                             <Cart />
                         </motion.div>
                         <motion.div 

@@ -46,12 +46,12 @@ export default function SearchBar() {
             id="searchBox"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="font-montserrat  text-sm px-2 py-[6px] rounded-lg w-44 md:w-72 focus:w-60 md:focus:w-80 focus:outline-none transition-all"/>
+            className="font-montserrat  text-sm px-2 py-[6px] rounded-lg w-44 sm:w-56 md:w-72 xl:w-80 focus:w-60 sm:focus:w-72 md:focus:w-80 xl:focus:w-96 focus:outline-none transition-all"/>
         <label htmlFor="searchBox" className="absolute right-1 top-0 bottom-0 flex items-center">
             <MagnifyingGlassIcon className="w-[18px] h-[18px]"/>
         </label>
         { (isFocused && results.length > 0) && (
-            <div className="mt-1 py-2 px-2 overflow-y-auto bg-white bg-opacity-95 absolute top-full w-full max-h-[300px] z-10 rounded-lg shadow-xl">
+            <div className="mt-1 py-2 px-2 overflow-y-auto bg-white bg-opacity-95 absolute top-full w-full max-h-[300px] z-10 rounded-lg shadow-xl scroll-content">
                 {results.map((game) => (
                     <Link
                         to={`/shop/game/${game.id}`}
