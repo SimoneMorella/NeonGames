@@ -13,7 +13,7 @@ export default function Home () {
                     <span className="font-cyberWay text-white inline-block h-16">Games</span>
                 </h1>
                 <button 
-                    className="font-neon text-white text-center text-2xl xl:text-3xl w-32 xl:w-36 self-center py-2 home-btn-fix xl:py-3 px-6 pt-4 xl:pt-5 neonLogo neonBorder animate-borderPulse"
+                    className="font-neon flex items-center justify-center text-white text-center text-2xl xl:text-3xl w-32 xl:w-36 self-center py-2 home-btn-fix xl:py-3 px-6 pt-4 xl:pt-5 neonLogo neonBorder animate-borderPulse"
                     onClick={() => navigate("/shop")}>
                     <div className="animate-textPulsate">
                         S<span className="animate-textFlick safari-flick-fix">H</span>OP

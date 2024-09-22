@@ -140,14 +140,14 @@
     }
     
     .home-top-fix {
-        top: 0 !important;
+        top: -1px !important;
     }
 
     .home-margin-fix {
-        margin-bottom: 0 !important;
+        margin-bottom: -1px !important;
     }
 
     .home-btn-fix {
-        padding-top: 0 !important;
+        padding-top: 4px !important;
     }
 }
