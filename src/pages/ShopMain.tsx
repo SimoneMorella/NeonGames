@@ -96,7 +96,7 @@ export default function ShopMain () {
                         <div className="h-[210px] flex justify-center items-center">
                             <Link 
                                 to='/shop/gamelist/top-of-all-time?ordering=-added&page_size=20&exclude_additions&parent_platforms=1,2,3'
-                                className="neonLogo font-neon animate-textPulsate xl:text-xl">
+                                className="neonLogo font-neon xl:text-xl">
                                     See More...
                             </Link>
                         </div>
@@ -135,7 +135,7 @@ export default function ShopMain () {
                         <div className="h-[210px] flex justify-center items-center">
                             <Link 
                                 to={`/shop/gamelist/top-of-last-year?ordering=-added&page_size=20&dates=${new Date().getFullYear() - 1}-01-01,${new Date().getFullYear() - 1}-12-31`}
-                                className="neonLogo font-neon animate-textPulsate xl:text-xl">
+                                className="neonLogo font-neon xl:text-xl">
                                     See More...
                             </Link>
                         </div>
@@ -174,7 +174,7 @@ export default function ShopMain () {
                         <div className="h-[210px] flex justify-center items-center">
                             <Link 
                                 to={`/shop/gamelist/next-30-days?ordering=-added&page_size=20&dates=${get30DaysNextGap()}`}
-                                className="neonLogo font-neon animate-textPulsate xl:text-xl">
+                                className="neonLogo font-neon xl:text-xl">
                                     See More...
                             </Link>
                         </div>

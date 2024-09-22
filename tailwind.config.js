@@ -23,7 +23,7 @@ export default {
             textShadow: "0 0 4px #ffffff4d, 0 0 20px #FA4B9C, 0 0 40px #FA4B9C",
           },
           "100%": {
-            textShadow: "0 0 6px #ffffff4d, 0 0 25px #FA4B9C, 0 0 38px #FA4B9C, 0 0 50px #FA4B9C, 0 0 58px #FA4B9C",
+            textShadow: "0 0 6px #ffffff4d, 0 0 25px #FA4B9C, 0 0 38px #FA4B9C, 0 0 48px #FA4B9C",
           }
         },
         textFlick: {
