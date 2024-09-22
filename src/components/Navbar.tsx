@@ -33,7 +33,7 @@ export default function Navbar() {
     return (
         <nav className=" w-full flex items-center py-6 px-8 md:px-16 lg:px-8 justify-between">
             <Link to="/" className="font-neon text-3xl flex relative">
-                <span className="neonLogo relative top-[2px] animate-textPulsate">
+                <span className="neonLogo relative top-[2px] home-top-fix animate-textPulsate">
                     N<span className="hidden absolute lg:inline lg:ml-[1px]">eon</span>
                 </span>
                 <span className="font-cyberWay relative lg:left-14 z-10 text-white -ml-2 lg:ml-0">

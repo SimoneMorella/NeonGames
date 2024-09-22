@@ -14,7 +14,7 @@ export default function ErrorPage() {
             <div className="flex gap-4">
                 <h2 className="font-cyberWay text-4xl md:text-5xl">Error</h2>
                 <h2 className="text-[#FA4B9C] relative top-1 font-neon text-4xl md:text-5xl neonLogo animate-textPulsate">
-                    4<span className="animate-textFlick">0</span>4
+                    4<span className="animate-textFlick safari-flick-fix">0</span>4
                 </h2>
             </div>
             <div className="flex gap-1 font-bold mt-7">

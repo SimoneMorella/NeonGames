@@ -134,4 +134,20 @@
 }
 }
 
+@supports (-webkit-backdrop-filter: none) {
+    .safari-flick-fix {
+        animation: none !important;
+    }
+    
+    .home-top-fix {
+        top: 0 !important;
+    }
 
+    .home-margin-fix {
+        margin-bottom: 0 !important;
+    }
+
+    .home-btn-fix {
+        padding-top: 0 !important;
+    }
+}
