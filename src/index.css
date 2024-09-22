@@ -12,7 +12,6 @@
     src: url('./assets/fonts/neonFont.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
-    font-display: swap;
 }
 
 @font-face {
@@ -20,7 +19,6 @@
     src: url('./assets/fonts/cyberWayFont.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
-    font-display: swap;
 }
 
 @font-face {
@@ -28,7 +26,6 @@
     src: url('./assets/fonts/montserrat.ttf') format('opentype');
     font-weight: normal;
     font-style: normal;
-    font-display: swap;
 }
 
 .neonLogo {
