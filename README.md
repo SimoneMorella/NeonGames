@@ -21,7 +21,11 @@ Additional libraries where used in the development of this project:
 In addition a DRY methodology was used for the components re-use, while also trying to keep my project folder organized as well.   
 TypeScript was really helpful in this project as it let me spot all the bug in the fetching and Context API usage in advance.  
 
+### Differences in iOS
+As the browser of iOS and MacOS is different than Windows or Android browsers, there was a visual bug with some animation and  
+some margins. That is why on iOS some animation are disabled and some margins changed inside the CSS file through the @support query.
 
+To insert images
 
 README TO FINISH  
 For now only the link for the live preview.  
