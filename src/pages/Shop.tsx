@@ -19,7 +19,7 @@ export default function Shop() {
 
     // if i want the full screen rest for this component child (main) just add flex here
     return (
-        <div className=" flex-1 text-white md:grid md:grid-cols-[250px_repeat(5,_1fr)] xl:grid-cols-[350px_repeat(5,_1fr)]">
+        <div className=" flex-1 text-white md:grid md:grid-cols-[240px_repeat(5,_1fr)] xl:grid-cols-[272px_repeat(5,_1fr)] 2xl:grid-cols-[350px_repeat(5,_1fr)]">
             <motion.div 
                 className="z-10 md:hidden container"
                 initial={{transform: 'scale(1)'}}
