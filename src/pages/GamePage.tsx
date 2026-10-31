@@ -19,7 +19,7 @@ export default function GamePage() {
     const isFavorite = favoriteGames.some(g => g.id === game.id);
     const isInCart = cart.some(g => g.id === game.id);
     return (
-        <div className="text-white font-montserrat flex flex-col lg:grid lg:grid-cols-7 gap-6 lg:gap-y-16 py-8 lg:py-20 px-8 sm:px-20 md:px-28 lg:px-8 2xl:max-w-[1520px] 2xl:mx-auto">
+        <div className="text-white font-montserrat flex flex-col lg:grid lg:grid-cols-7 gap-6 lg:gap-y-16 py-8 lg:py-12 2xl:py-20 px-8 sm:px-20 md:px-28 lg:px-8 2xl:max-w-[1520px] 2xl:mx-auto">
             <div className="flex flex-col gap-4 lg:col-span-5 lg:gap-8">
                 <h2 className="font-bold text-xl md:text-3xl">{game.name}</h2>
                 <Swiper
@@ -33,7 +33,7 @@ export default function GamePage() {
                         disableOnInteraction: false,
                         pauseOnMouseEnter: true,
                     }}
-                    className=" bg-transparent text-black w-full h-64 sm:h-80 md:h-96 lg:h-[700px] rounded-lg"
+                    className=" bg-transparent text-black w-full h-64 sm:h-80 md:h-96 lg:h-[min(64svh,700px)] rounded-lg"
                     >
                     <SwiperSlide
                     style={{

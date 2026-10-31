@@ -32,8 +32,8 @@ export default function Navbar() {
     }
     return (
         <nav className=" w-full flex items-center py-6 px-8 md:px-16 lg:px-8 justify-between">
-            <Link to="/" className="font-neon text-3xl flex relative">
-                <span className="neonLogo relative top-[2px] home-top-fix animate-textPulsate">
+            <Link to="/" className="font-neon text-3xl leading-none flex items-baseline relative">
+                <span className="neonLogo relative top-[0.1em] animate-textPulsate">
                     N<span className="hidden absolute lg:inline lg:ml-[1px]">eon</span>
                 </span>
                 <span className="font-cyberWay relative lg:left-14 z-10 text-white -ml-2 lg:ml-0">
@@ -55,7 +55,7 @@ export default function Navbar() {
                             animate={{ x: 0 }}
                             exit= {{ x: '360px' }}
                             transition={{ duration: 0.3, ease: 'easeOut' }}
-                            className="absolute z-50 top-0 right-0 w-[280px] md:w-[360px] xl:w-[420px] h-full bg-cartBg p-4 shadow-md">
+                            className="absolute z-50 top-0 right-0 w-[280px] md:w-[360px] 2xl:w-[420px] h-full bg-cartBg p-4 shadow-md">
                             <Cart />
                         </motion.div>
                         <motion.div 

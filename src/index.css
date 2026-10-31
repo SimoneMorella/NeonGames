@@ -12,6 +12,12 @@
     src: url('./assets/fonts/neonFont.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
+    /* The font flags USE_TYPO_METRICS: Linux honours it, macOS reads hhea
+       (ascent 1012 / descent 125) and draws every glyph ~0.2em lower.
+       Pin the typo metrics so the box is the same on every platform. */
+    ascent-override: 80%;
+    descent-override: 20%;
+    line-gap-override: 0%;
 }
 
 @font-face {
@@ -134,20 +140,14 @@
 }
 }
 
+/* Trim the line box to cap height and baseline so neon lettering centres
+   optically, independent of how each OS reads the font's vertical metrics. */
+.trim-caps {
+    text-box: trim-both cap alphabetic;
+}
+
 @supports (-webkit-backdrop-filter: none) {
     .safari-flick-fix {
         animation: none !important;
-    }
-    
-    .home-top-fix {
-        top: -1px !important;
-    }
-
-    .home-margin-fix {
-        margin-bottom: -3px !important;
-    }
-
-    .home-btn-fix {
-        padding-top: 4px !important;
     }
 }

@@ -7,15 +7,15 @@ export default function Home () {
 
     return (
         <div className=" flex-1 bg-customBg flex justify-center items-center">
-            <div className="flex flex-col justify-center gap-10 lg:gap-14 xl:gap-16 p-8 -mt-40">
-                <h1 className="font-neon text-5xl md:text-6xl xl:text-7xl p-4 flex items-center">
-                    <span className="neonLogo inline-block -mb-2 home-margin-fix h-16 animate-textPulsate">Ne<span className="animate-textFlick safari-flick-fix">o</span>n</span>
-                    <span className="font-cyberWay text-white inline-block h-16">Games</span>
+            <div className="flex flex-col items-center justify-center gap-10 lg:gap-12 2xl:gap-16 p-8 -mt-32">
+                <h1 className="font-neon text-[clamp(3rem,4.6vw,4.5rem)] leading-none p-4 flex items-baseline">
+                    <span className="neonLogo relative top-[0.1em] animate-textPulsate">Ne<span className="animate-textFlick safari-flick-fix">o</span>n</span>
+                    <span className="font-cyberWay text-white">Games</span>
                 </h1>
                 <button 
-                    className="font-neon flex items-center justify-center text-white text-center text-2xl xl:text-3xl w-32 xl:w-36 self-center py-2 home-btn-fix xl:py-3 px-6 pt-4 xl:pt-5 neonLogo neonBorder animate-borderPulse"
+                    className="font-neon flex items-center justify-center text-white text-2xl 2xl:text-3xl leading-none w-32 2xl:w-36 py-4 2xl:py-5 px-6 neonLogo neonBorder animate-borderPulse"
                     onClick={() => navigate("/shop")}>
-                    <div className="animate-textPulsate">
+                    <div className="trim-caps animate-textPulsate">
                         S<span className="animate-textFlick safari-flick-fix">H</span>OP
                     </div>
                 </button>

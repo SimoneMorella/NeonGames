@@ -19,7 +19,7 @@ export default function CardBase({ game }: GameProp) {
                 boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
                 position: 'relative',
             }}
-            className="h-[220px] sm:h-[300px] md:h-[220px] lg:h-[250px] xl:h-[320px]">
+            className="aspect-[3/4]">
                 <button
                     className="absolute z-10 top-2 right-2 p-[2px] flex justify-center items-center bg-white bg-opacity-70 rounded-full opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-500"
                     onClick={(e) =>
